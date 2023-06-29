@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CoinsApp</string>
+    <string name="assets">Assets</string>
+    <string name="rates">Rates</string>
+    <string name="exchanges">Exchanges</string>
+    <string name="markets">Markets</string>
 </resources>

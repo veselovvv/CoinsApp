@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/assetsFragment"
+        android:icon="@drawable/baseline_monetization_on_24"
+        android:title="@string/assets" />
+
+    <item
+        android:id="@+id/ratesFragment"
+        android:icon="@drawable/baseline_star_rate_24"
+        android:title="@string/rates" />
+
+    <item
+        android:id="@+id/exchangesFragment"
+        android:icon="@drawable/baseline_bar_chart_24"
+        android:title="@string/exchanges" />
+
+    <item
+        android:id="@+id/marketsFragment"
+        android:icon="@drawable/baseline_show_chart_24"
+        android:title="@string/markets" />
+</menu>
