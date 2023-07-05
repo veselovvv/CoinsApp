@@ -1,6 +1,9 @@
 package com.veselovvv.coinsapp.data.assets
 
 import com.veselovvv.coinsapp.data.TestException
+import com.veselovvv.coinsapp.data.assets.cloud.AssetCloud
+import com.veselovvv.coinsapp.data.assets.cloud.AssetsCloudDataSource
+import com.veselovvv.coinsapp.data.assets.cloud.AssetsCloudMapper
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
