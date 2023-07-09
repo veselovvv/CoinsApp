@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.presentation
 
 import com.veselovvv.coinsapp.core.ResourceProvider
+import com.veselovvv.coinsapp.R
 
 class TestResourceProvider : ResourceProvider {
     override fun getString(id: Int) = when (id) {

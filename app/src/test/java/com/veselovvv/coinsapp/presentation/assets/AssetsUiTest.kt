@@ -1,5 +1,7 @@
 package com.veselovvv.coinsapp.presentation.assets
 
+import com.veselovvv.coinsapp.domain.assets.AssetDomain
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class AssetsUiTest {

@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.assets
 
+import com.veselovvv.coinsapp.data.assets.AssetData
+import com.veselovvv.coinsapp.data.assets.AssetsData
+import com.veselovvv.coinsapp.data.assets.AssetsRepository
+
 class TestAssetsRepository(private val exception: Exception? = null) : AssetsRepository {
     private val assets = listOf(
         AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"),
