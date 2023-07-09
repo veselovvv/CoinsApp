@@ -17,7 +17,7 @@ interface Mapper {
         }
     }
 
-    interface DomainToUi<S, T> {
+    interface DomainToUi<S, T> : Mapper {
         fun map(errorType: ErrorType): T
 
         abstract class Base<S, T>(

@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.assets
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.assets.AssetUi
 
 data class AssetDomain(
     private val rank: String,

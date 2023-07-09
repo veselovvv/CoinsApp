@@ -1,6 +1,11 @@
 package com.veselovvv.coinsapp.presentation.assets
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.assets.AssetData
+import com.veselovvv.coinsapp.domain.assets.AssetsDomain
+import com.veselovvv.coinsapp.domain.assets.BaseAssetDataToDomainMapper
+import com.veselovvv.coinsapp.domain.assets.FetchAssetsUseCase
+import com.veselovvv.coinsapp.domain.assets.SearchAssetsUseCase
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
