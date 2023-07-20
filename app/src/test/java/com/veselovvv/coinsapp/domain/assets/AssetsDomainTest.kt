@@ -33,12 +33,12 @@ class AssetsDomainTest {
     fun test_fail() {
         var domain = AssetsDomain.Fail(ErrorType.NO_CONNECTION)
         var expected = AssetsUi.Fail(NO_CONNECTION_MESSAGE)
-        var actual = domain.map(BaseAssetsDomainToUiMapper(TestResourceProvider(), assetMapper))
+        var actual = domain.map(BaseAssetsDomainToUiMapper(TestResourceProvider(), BaseAssetDomainToUiMapper()))
         assertEquals(expected, actual)
 
         domain = AssetsDomain.Fail(ErrorType.SERVICE_UNAVAILABLE)
         expected = AssetsUi.Fail(SERVICE_UNAVAILABLE_MESSAGE)
-        actual = domain.map(BaseAssetsDomainToUiMapper(TestResourceProvider(), assetMapper))
+        actual = domain.map(BaseAssetsDomainToUiMapper(TestResourceProvider(), BaseAssetDomainToUiMapper()))
         assertEquals(expected, actual)
     }
 
