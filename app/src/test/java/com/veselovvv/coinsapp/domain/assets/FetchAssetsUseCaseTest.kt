@@ -17,7 +17,7 @@ class FetchAssetsUseCaseTest {
 
         val assetMapper = BaseAssetDataToDomainMapper()
 
-        val useCase = FetchAssetsUseCase(
+        val useCase = FetchAssetsUseCase.Base(
             TestAssetsRepository(),
             BaseAssetsDataToDomainMapper(assetMapper)
         )
@@ -31,7 +31,7 @@ class FetchAssetsUseCaseTest {
     fun test_fail() = runBlocking {
         var assetMapper = BaseAssetDataToDomainMapper()
 
-        var useCase = FetchAssetsUseCase(
+        var useCase = FetchAssetsUseCase.Base(
             TestAssetsRepository(UnknownHostException()),
             BaseAssetsDataToDomainMapper(assetMapper)
         )
@@ -42,7 +42,7 @@ class FetchAssetsUseCaseTest {
 
         assetMapper = BaseAssetDataToDomainMapper()
 
-        useCase = FetchAssetsUseCase(
+        useCase = FetchAssetsUseCase.Base(
             TestAssetsRepository(Exception()),
             BaseAssetsDataToDomainMapper(assetMapper)
         )

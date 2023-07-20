@@ -13,7 +13,7 @@ class SearchAssetsUseCaseTest {
         val foundAssets = listOf(AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"))
         val assetMapper = BaseAssetDataToDomainMapper()
 
-        val useCase = SearchAssetsUseCase(
+        val useCase = SearchAssetsUseCase.Base(
             TestAssetsRepository(),
             BaseAssetsDataToDomainMapper(assetMapper)
         )
@@ -27,7 +27,7 @@ class SearchAssetsUseCaseTest {
     fun test_fail() = runBlocking {
         var assetMapper = BaseAssetDataToDomainMapper()
 
-        var useCase = SearchAssetsUseCase(
+        var useCase = SearchAssetsUseCase.Base(
             TestAssetsRepository(UnknownHostException()),
             BaseAssetsDataToDomainMapper(assetMapper)
         )
@@ -38,7 +38,7 @@ class SearchAssetsUseCaseTest {
 
         assetMapper = BaseAssetDataToDomainMapper()
 
-        useCase = SearchAssetsUseCase(
+        useCase = SearchAssetsUseCase.Base(
             TestAssetsRepository(Exception()),
             BaseAssetsDataToDomainMapper(assetMapper)
         )
