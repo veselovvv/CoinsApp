@@ -1,8 +1,6 @@
 package com.veselovvv.coinsapp.data.assets
 
-import com.veselovvv.coinsapp.core.Mapper
-
-interface ToAssetMapper : Mapper {
+interface ToAssetMapper {
     fun map(rank: String, symbol: String, name: String): AssetData
 
     class Base : ToAssetMapper {
