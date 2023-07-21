@@ -1,6 +1,5 @@
 package com.veselovvv.coinsapp.presentation.assets
 
-import com.veselovvv.coinsapp.core.Mapper
 import com.veselovvv.coinsapp.core.Object
 
 sealed class AssetUi : Object<Unit, AssetUi.BaseMapper> {
@@ -25,7 +24,7 @@ sealed class AssetUi : Object<Unit, AssetUi.BaseMapper> {
         override fun map(mapper: BaseMapper) = mapper.map(errorMessage)
     }
 
-    interface BaseMapper : Mapper {
+    interface BaseMapper {
         fun map(rank: String, symbol: String, name: String)
         fun map(text: String)
     }

@@ -3,9 +3,8 @@ package com.veselovvv.coinsapp.presentation.assets
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.veselovvv.coinsapp.core.Mapper
 
-interface AssetsCommunication : Mapper {
+interface AssetsCommunication {
     fun map(assets: List<AssetUi>)
     fun observe(owner: LifecycleOwner, observer: Observer<List<AssetUi>>)
 
