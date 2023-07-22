@@ -64,7 +64,7 @@ class BaseAssetsRepositoryTest {
         )
 
         val expected = AssetsData.Success(listOf())
-        val actual = repository.searchAssets(query = "")
+        val actual = repository.searchAssets(query = "Az")
         assertEquals(expected, actual)
     }
 
