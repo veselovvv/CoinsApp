@@ -10,7 +10,7 @@ sealed class AssetUi : Object<Unit, AssetUi.BaseMapper> {
 
     object NoResults : AssetUi()
 
-    class Base(
+    data class Base(
         private val rank: String,
         private val symbol: String,
         private val name: String
@@ -20,7 +20,7 @@ sealed class AssetUi : Object<Unit, AssetUi.BaseMapper> {
             assetListener.showAsset(rank, symbol, name)
     }
 
-    class Fail(private val errorMessage: String) : AssetUi() {
+    data class Fail(private val errorMessage: String) : AssetUi() {
         override fun map(mapper: BaseMapper) = mapper.map(errorMessage)
     }
 
