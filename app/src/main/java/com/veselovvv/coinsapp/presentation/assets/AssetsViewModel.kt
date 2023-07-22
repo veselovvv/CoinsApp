@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.veselovvv.coinsapp.core.Save
+import com.veselovvv.coinsapp.di.core.CoreDomainModule
 import com.veselovvv.coinsapp.domain.assets.AssetsDomainToUiMapper
 import com.veselovvv.coinsapp.domain.assets.FetchAssetsUseCase
 import com.veselovvv.coinsapp.domain.assets.SearchAssetsUseCase
@@ -18,7 +19,7 @@ import javax.inject.Inject
 class AssetsViewModel @Inject constructor(
     private val communication: AssetsCommunication,
     @CoreDomainModule.IODispatcher private val dispatchersIO: CoroutineDispatcher,
-    @CoreDomainModule.UIDispatcher private val dispatchersUi: CoroutineDispatcher,
+    @CoreDomainModule.MainDispatcher private val dispatchersUi: CoroutineDispatcher,
     private val fetchAssetsUseCase: FetchAssetsUseCase,
     private val searchAssetsUseCase: SearchAssetsUseCase,
     private val mapper: AssetsDomainToUiMapper,
