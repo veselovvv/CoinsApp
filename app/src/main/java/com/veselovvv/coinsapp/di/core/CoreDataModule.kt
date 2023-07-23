@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class CoreDataModule {
     companion object {
-        private const val BASE_URL = "api.coincap.io/v2/"
+        private const val BASE_URL = "https://api.coincap.io/v2/"
     }
 
     @Provides
