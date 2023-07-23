@@ -30,6 +30,11 @@ class AssetsDataModule {
     @Singleton
     fun provideToAssetMapper(): ToAssetMapper = ToAssetMapper.Base()
 
+    @Singleton
+    @Provides
+    fun provideAssetsCloudMapper(assetMapper: ToAssetMapper): AssetsCloudMapper =
+        AssetsCloudMapper.Base(assetMapper)
+
     @Provides
     @Singleton
     fun provideAssetsRepository(
