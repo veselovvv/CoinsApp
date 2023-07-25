@@ -20,7 +20,7 @@ class FetchAssetInfoUseCaseTest {
         )
 
         val assetInfoDataToDomainMapper = BaseAssetInfoDataToDomainMapper()
-        val useCase = FetchAssetInfoUseCase(
+        val useCase = FetchAssetInfoUseCase.Base(
             TestAssetInfoRepository(),
             BaseAssetsInfoDataToDomainMapper(assetInfoDataToDomainMapper)
         )
@@ -32,7 +32,7 @@ class FetchAssetInfoUseCaseTest {
     @Test
     fun test_fail() = runBlocking {
         val assetInfoDataToDomainMapper = BaseAssetInfoDataToDomainMapper()
-        var useCase = FetchAssetInfoUseCase(
+        var useCase = FetchAssetInfoUseCase.Base(
             TestAssetInfoRepository(UnknownHostException()),
             BaseAssetsInfoDataToDomainMapper(assetInfoDataToDomainMapper)
         )
@@ -40,7 +40,7 @@ class FetchAssetInfoUseCaseTest {
         var actual = useCase.execute(id = "bitcoin")
         assertEquals(expected, actual)
 
-        useCase = FetchAssetInfoUseCase(
+        useCase = FetchAssetInfoUseCase.Base(
             TestAssetInfoRepository(Exception()),
             BaseAssetsInfoDataToDomainMapper(assetInfoDataToDomainMapper)
         )
