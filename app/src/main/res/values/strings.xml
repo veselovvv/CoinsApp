@@ -12,4 +12,12 @@
     <string name="please_check_spelling">Please check spelling or try a different word</string>
     <string name="rank">Rank:</string>
     <string name="search_assets">Search assets</string>
+    <string name="available_supply_for_trading">Available supply for trading:</string>
+    <string name="total_quantity_of_asset_issued">Total quantity of asset issued:</string>
+    <string name="supply_x_price">Supply x price:</string>
+    <string name="quantity_of_trading_volume_represented_in_usd_over_the_last_24_hours">Quantity of trading volume represented in USD over the last 24 hours:</string>
+    <string name="price_usd">Price (USD):</string>
+    <string name="direction_and_value_change_in_the_last_24_hours">Direction and value change in the last 24 hours:</string>
+    <string name="volume_weighted_average_price">Volume Weighted Average Price in the last 24 hours:</string>
+    <string name="history">History</string>
 </resources>
