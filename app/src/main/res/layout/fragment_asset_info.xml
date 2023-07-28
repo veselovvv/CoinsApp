@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <include layout="@layout/progress_fullscreen"
+        android:id="@+id/asset_info_progress_layout"
+        android:visibility="gone" />
+
+    <include layout="@layout/fail_fullscreen"
+        android:id="@+id/asset_info_fail_layout"
+        android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/asset_info_swipe_to_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView style="@style/scroll_view">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_symbol"
+                    tools:text="BTC"
+                    style="@style/big_text_view" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    tools:text="Bitcoin" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/rank" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_rank"
+                    style="@style/small_text_view"
+                    tools:text="1" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/available_supply_for_trading" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_supply"
+                    style="@style/small_text_view"
+                    tools:text="17193925.0000000000000000" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/total_quantity_of_asset_issued" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_max_supply"
+                    style="@style/small_text_view"
+                    tools:text="21000000.0000000000000000" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/supply_x_price" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_market_cap_usd"
+                    style="@style/small_text_view"
+                    tools:text="119179791817.6740161068269075" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/quantity_of_trading_volume_represented_in_usd_over_the_last_24_hours" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_volume_usd_24_hr"
+                    style="@style/small_text_view"
+                    tools:text="2928356777.6066665425687196" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/price_usd" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_price_usd"
+                    style="@style/small_text_view"
+                    tools:text="6931.5058555666618359" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/direction_and_value_change_in_the_last_24_hours" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_change_percent_24_hr"
+                    style="@style/small_text_view"
+                    tools:text="-0.8101417214350335" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/volume_weighted_average_price" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/asset_info_vwap_24_hr"
+                    style="@style/small_text_view"
+                    tools:text="7175.0663247679233209" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/asset_info_history_button"
+                    android:text="@string/history"
+                    style="@style/centred_rounded_button" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/asset_info_markets_button"
+                    android:text="@string/markets"
+                    style="@style/centred_rounded_button"/>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>
