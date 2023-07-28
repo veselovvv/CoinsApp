@@ -7,10 +7,7 @@ import com.veselovvv.coinsapp.data.assets.AssetDataToDomainMapper
 import com.veselovvv.coinsapp.data.assets.AssetsDataToDomainMapper
 import com.veselovvv.coinsapp.data.assets.AssetsRepository
 import com.veselovvv.coinsapp.domain.assets.*
-import com.veselovvv.coinsapp.presentation.assets.AssetCache
-import com.veselovvv.coinsapp.presentation.assets.AssetsCommunication
-import com.veselovvv.coinsapp.presentation.assets.BaseAssetDomainToUiMapper
-import com.veselovvv.coinsapp.presentation.assets.BaseAssetsDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.assets.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,5 +52,5 @@ class AssetsDomainModule {
     @Provides
     fun provideAssetCache(
         @ApplicationContext context: Context
-    ): Save<Triple<String, String, String>> = AssetCache.Base(context)
+    ): Save<AssetParameters> = AssetCache.Base(context)
 }

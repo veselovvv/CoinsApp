@@ -23,7 +23,7 @@ class AssetsViewModel @Inject constructor(
     private val fetchAssetsUseCase: FetchAssetsUseCase,
     private val searchAssetsUseCase: SearchAssetsUseCase,
     private val mapper: AssetsDomainToUiMapper,
-    private val assetCache: Save<Triple<String, String, String>>
+    private val assetCache: Save<AssetParameters>
 ) : ViewModel() {
     fun fetchAssets() {
         communication.map(listOf(AssetUi.Progress))
@@ -47,8 +47,8 @@ class AssetsViewModel @Inject constructor(
         }
     }
 
-    fun saveAssetInfo(rank: String, symbol: String, name: String) =
-        assetCache.save(Triple(rank, symbol, name))
+    fun saveAssetInfo(id: String, rank: String, symbol: String, name: String) =
+        assetCache.save(AssetParameters(id, rank, symbol, name))
 
     fun observe(owner: LifecycleOwner, observer: Observer<List<AssetUi>>) =
         communication.observe(owner, observer)
