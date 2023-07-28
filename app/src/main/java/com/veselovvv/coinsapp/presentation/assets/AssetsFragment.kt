@@ -33,8 +33,8 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding>() {
             override fun tryAgain() = viewModel.fetchAssets()
         },
             object : AssetsAdapter.AssetListener {
-                override fun showAsset(rank: String, symbol: String, name: String) {
-                    viewModel.saveAssetInfo(rank, symbol, name)
+                override fun showAsset(id: String, rank: String, symbol: String, name: String) {
+                    viewModel.saveAssetInfo(id, rank, symbol, name)
                     //TODO navigate(R.id.)
                 }
             }

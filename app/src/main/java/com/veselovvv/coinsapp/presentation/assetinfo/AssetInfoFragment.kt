@@ -24,9 +24,13 @@ class AssetInfoFragment : BaseFragment<FragmentAssetInfoBinding>() {
 
         val swipeToRefreshLayout = binding.assetInfoSwipeToRefresh
         swipeToRefreshLayout.setOnRefreshListener {
-            viewModel.fetchAssetInfo(/*TODO get id*/)
+            viewModel.fetchAssetInfo(viewModel.getAssetId())
             swipeToRefreshLayout.isRefreshing = false
         }
+
+        binding.assetInfoRank.text = viewModel.getAssetRank()
+        binding.assetInfoSymbol.text = viewModel.getAssetSymbol()
+        binding.assetInfoName.text = viewModel.getAssetName()
 
         binding.assetInfoHistoryButton.setOnClickListener {
             //TODO navigate
@@ -52,10 +56,10 @@ class AssetInfoFragment : BaseFragment<FragmentAssetInfoBinding>() {
                 binding.assetInfoFailLayout.failMessageTextView,
                 binding.assetInfoFailLayout.failTryAgainButton,
                 object : Retry {
-                    override fun tryAgain() = viewModel.fetchAssetInfo(/*TODO get id*/)
+                    override fun tryAgain() = viewModel.fetchAssetInfo(viewModel.getAssetId())
                 }
             )
         }
-        viewModel.fetchAssetInfo(/*TODO get id*/)
+        viewModel.fetchAssetInfo(viewModel.getAssetId())
     }
 }

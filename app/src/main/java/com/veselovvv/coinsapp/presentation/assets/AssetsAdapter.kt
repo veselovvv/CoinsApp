@@ -102,6 +102,6 @@ class AssetsAdapter(
     }
 
     interface AssetListener {
-        fun showAsset(rank: String, symbol: String, name: String)
+        fun showAsset(id: String, rank: String, symbol: String, name: String)
     }
 }

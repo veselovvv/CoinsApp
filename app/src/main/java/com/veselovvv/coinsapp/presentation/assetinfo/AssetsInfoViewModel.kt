@@ -8,6 +8,7 @@ import com.veselovvv.coinsapp.core.Read
 import com.veselovvv.coinsapp.di.core.CoreDomainModule
 import com.veselovvv.coinsapp.domain.assetinfo.AssetsInfoDomainToUiMapper
 import com.veselovvv.coinsapp.domain.assetinfo.FetchAssetInfoUseCase
+import com.veselovvv.coinsapp.presentation.assets.AssetParameters
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ class AssetsInfoViewModel @Inject constructor(
     @CoreDomainModule.MainDispatcher private val dispatchersUi: CoroutineDispatcher,
     private val fetchAssetInfoUseCase: FetchAssetInfoUseCase,
     private val mapper: AssetsInfoDomainToUiMapper,
-    private val assetCache: Read<Triple<String, String, String>>
+    private val assetCache: Read<AssetParameters>
 ) : ViewModel() {
     fun fetchAssetInfo(id: String) {
         communication.map(AssetInfoUi.Progress)
@@ -37,8 +38,8 @@ class AssetsInfoViewModel @Inject constructor(
     fun observe(owner: LifecycleOwner, observer: Observer<AssetInfoUi>) =
         communication.observe(owner, observer)
 
-    fun getAssetId() = assetCache.//TODO
-    fun getAssetRank() = assetCache.read().first
-    fun getAssetSymbol() = assetCache.read().second
-    fun getAssetName() = assetCache.read().third
+    fun getAssetId() = assetCache.read().getId()
+    fun getAssetRank() = assetCache.read().getRank()
+    fun getAssetSymbol() = assetCache.read().getSymbol()
+    fun getAssetName() = assetCache.read().getName()
 }
