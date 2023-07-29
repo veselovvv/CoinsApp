@@ -1,5 +1,7 @@
 package com.veselovvv.coinsapp.domain.assetinfo
 
+import com.veselovvv.coinsapp.data.assetinfo.AssetInfoDataToDomainMapper
+
 class BaseAssetInfoDataToDomainMapper : AssetInfoDataToDomainMapper {
     override fun map(
         supply: String,
