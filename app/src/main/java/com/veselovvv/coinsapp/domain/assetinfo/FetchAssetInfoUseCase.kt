@@ -1,5 +1,8 @@
 package com.veselovvv.coinsapp.domain.assetinfo
 
+import com.veselovvv.coinsapp.data.assetinfo.AssetInfoRepository
+import com.veselovvv.coinsapp.data.assetinfo.AssetsInfoDataToDomainMapper
+
 interface FetchAssetInfoUseCase {
     suspend fun execute(id: String): AssetsInfoDomain
 

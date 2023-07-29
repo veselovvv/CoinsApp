@@ -1,5 +1,7 @@
 package com.veselovvv.coinsapp.data.assetinfo
 
+import com.veselovvv.coinsapp.data.assetinfo.cloud.AssetInfoCloud
+import com.veselovvv.coinsapp.data.assetinfo.cloud.AssetInfoCloudMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

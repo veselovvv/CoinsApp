@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.assetinfo
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.assetinfo.AssetInfoUi
 
 data class AssetInfoDomain(
     private val supply: String,

@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.presentation.assetinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.domain.assetinfo.AssetInfoDomain
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import org.junit.Assert.assertEquals
 import org.junit.Test

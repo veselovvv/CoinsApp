@@ -2,6 +2,10 @@ package com.veselovvv.coinsapp.presentation.assetinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
 import com.veselovvv.coinsapp.data.TestException
+import com.veselovvv.coinsapp.data.assetinfo.AssetInfoData
+import com.veselovvv.coinsapp.domain.assetinfo.AssetsInfoDomain
+import com.veselovvv.coinsapp.domain.assetinfo.BaseAssetInfoDataToDomainMapper
+import com.veselovvv.coinsapp.domain.assetinfo.FetchAssetInfoUseCase
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import com.veselovvv.coinsapp.presentation.assets.TestAssetCache
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -44,7 +48,7 @@ class AssetsInfoViewModelTest {
     @Test
     fun test_fetch_asset_info_fail() = runBlocking {
         var communication = TestAssetsInfoCommunication()
-        val dispatchers = UnconfinedTestDispatcher()
+        var dispatchers = UnconfinedTestDispatcher()
 
         var viewModel = AssetsInfoViewModel(
             communication,

@@ -1,5 +1,6 @@
 package com.veselovvv.coinsapp.presentation.assetinfo
 
+import com.veselovvv.coinsapp.domain.assetinfo.AssetInfoDomain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

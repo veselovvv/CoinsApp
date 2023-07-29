@@ -1,5 +1,7 @@
 package com.veselovvv.coinsapp.domain.assetinfo
 
+import com.veselovvv.coinsapp.presentation.assetinfo.AssetInfoUi
+
 interface AssetInfoDomainToUiMapper {
     fun map(
         supply: String,

@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.assetinfo
 
+import com.veselovvv.coinsapp.data.assetinfo.AssetInfoData
+import com.veselovvv.coinsapp.data.assetinfo.AssetInfoRepository
+import com.veselovvv.coinsapp.data.assetinfo.AssetsInfoData
+
 class TestAssetInfoRepository(private val exception: Exception? = null) : AssetInfoRepository {
     override suspend fun fetchAssetInfo(id: String) = if (exception == null)
         AssetsInfoData.Success(
