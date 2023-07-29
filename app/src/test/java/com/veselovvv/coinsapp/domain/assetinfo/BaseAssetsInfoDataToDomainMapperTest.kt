@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.assetinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.assetinfo.AssetInfoData
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.net.UnknownHostException
