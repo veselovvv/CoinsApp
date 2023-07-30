@@ -10,4 +10,10 @@
         android:name="com.veselovvv.coinsapp.presentation.assets.AssetsFragment"
         android:label="AssetsFragment"
         tools:layout="@layout/fragment_assets" />
+
+    <fragment
+        android:id="@+id/assetInfoFragment"
+        android:name="com.veselovvv.coinsapp.presentation.assetinfo.AssetInfoFragment"
+        android:label="AssetInfoFragment"
+        tools:layout="@layout/fragment_asset_info" />
 </navigation>
