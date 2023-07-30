@@ -11,13 +11,13 @@ class AssetsCloudMapperTest {
         val mapper = AssetsCloudMapper.Base(ToAssetMapper.Base())
 
         val assets = listOf(
-            AssetCloud(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetCloud(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetCloud(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetCloud(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val expected = listOf(
-            AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetData(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetData(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val actual = mapper.map(assets)

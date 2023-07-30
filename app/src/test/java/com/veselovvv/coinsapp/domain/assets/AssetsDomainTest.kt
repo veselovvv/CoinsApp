@@ -13,13 +13,13 @@ class AssetsDomainTest {
     @Test
     fun test_success() {
         val assets = listOf(
-            AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetData(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetData(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val resultAssets = listOf(
-            AssetDomain(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetDomain(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetDomain(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetDomain(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val assetMapper = BaseAssetDomainToUiMapper()

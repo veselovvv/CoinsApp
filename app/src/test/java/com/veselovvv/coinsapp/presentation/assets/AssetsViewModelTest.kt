@@ -33,8 +33,8 @@ class AssetsViewModelTest {
         viewModel.fetchAssets()
 
         val expected = listOf<AssetUi>(
-            AssetUi.Base(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetUi.Base(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetUi.Base(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetUi.Base(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val actual = communication.getAssets()
@@ -89,7 +89,7 @@ class AssetsViewModelTest {
         viewModel.searchAssets(query = "Bitcoin")
 
         var expected = listOf<AssetUi>(
-            AssetUi.Base(rank = "1", symbol = "BTC", name = "Bitcoin")
+            AssetUi.Base(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin")
         )
 
         var actual = communication.getAssets()
@@ -138,8 +138,8 @@ class AssetsViewModelTest {
     class TestFetchAssetsUseCase(private val success: Boolean = true) : FetchAssetsUseCase {
         override suspend fun execute() = if (success) AssetsDomain.Success(
             listOf(
-                AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"),
-                AssetData(rank = "5", symbol = "USDC", name = "USD Coin")
+                AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+                AssetData(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
             ),
             BaseAssetDataToDomainMapper()
         ) else AssetsDomain.Fail(ErrorType.GENERIC_ERROR)
@@ -153,7 +153,7 @@ class AssetsViewModelTest {
             if (isListEmpty)
                 AssetsDomain.Success(listOf(), BaseAssetDataToDomainMapper())
             else AssetsDomain.Success(
-                listOf(AssetData(rank = "1", symbol = "BTC", name = "Bitcoin")),
+                listOf(AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin")),
                 BaseAssetDataToDomainMapper()
             )
         } else AssetsDomain.Fail(ErrorType.GENERIC_ERROR)

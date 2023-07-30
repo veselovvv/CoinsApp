@@ -18,8 +18,8 @@ class BaseAssetsRepositoryTest {
 
         val expected = AssetsData.Success(
             listOf(
-                AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"),
-                AssetData(rank = "5", symbol = "USDC", name = "USD Coin")
+                AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+                AssetData(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
             )
         )
 
@@ -48,7 +48,7 @@ class BaseAssetsRepositoryTest {
 
         val expected = AssetsData.Success(
             listOf(
-                AssetData(rank = "1", symbol = "BTC", name = "Bitcoin")
+                AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin")
             )
         )
 
@@ -70,8 +70,8 @@ class BaseAssetsRepositoryTest {
 
     class TestAssetsCloudDataSource(private val success: Boolean) : AssetsCloudDataSource {
         override suspend fun fetchAssets() = if (success) listOf(
-            AssetCloud(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetCloud(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetCloud(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetCloud(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         ) else throw TestException("")
     }
 }

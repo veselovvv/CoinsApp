@@ -8,8 +8,8 @@ class AssetsUiTest {
     @Test
     fun test_success() {
         val assets = listOf(
-            AssetDomain(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetDomain(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetDomain(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetDomain(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         var ui = AssetsUi.Success(assets, BaseAssetDomainToUiMapper())
@@ -17,8 +17,8 @@ class AssetsUiTest {
         ui.map(communication)
 
         var expected = listOf<AssetUi>(
-            AssetUi.Base(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetUi.Base(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetUi.Base(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetUi.Base(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         var actual = communication.getAssets()

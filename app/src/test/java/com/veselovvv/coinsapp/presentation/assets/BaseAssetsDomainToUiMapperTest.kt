@@ -13,8 +13,8 @@ class BaseAssetsDomainToUiMapperTest {
     @Test
     fun test_success() {
         val assets = listOf(
-            AssetDomain(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetDomain(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetDomain(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetDomain(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val expected = AssetsUi.Success(assets, assetMapper)
