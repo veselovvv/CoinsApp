@@ -9,7 +9,7 @@ data class AssetInfoCloud(
     @SerializedName("supply")
     private val supply: String,
     @SerializedName("maxSupply")
-    private val maxSupply: String,
+    private val maxSupply: String?,
     @SerializedName("marketCapUsd")
     private val marketCapUsd: String,
     @SerializedName("volumeUsd24Hr")
@@ -22,5 +22,9 @@ data class AssetInfoCloud(
     private val vwap24Hr: String
 ) : Object<AssetInfoData, ToAssetInfoMapper> {
     override fun map(mapper: ToAssetInfoMapper) =
-        mapper.map(supply, maxSupply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr)
+        mapper.map(supply, maxSupply ?: NO_DATA, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr)
+
+    companion object {
+        private const val NO_DATA = "-"
+    }
 }
