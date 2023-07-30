@@ -35,7 +35,7 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding>() {
             object : AssetsAdapter.AssetListener {
                 override fun showAsset(id: String, rank: String, symbol: String, name: String) {
                     viewModel.saveAssetInfo(id, rank, symbol, name)
-                    //TODO navigate(R.id.)
+                    navigate(R.id.assetInfoFragment)
                 }
             }
         )
