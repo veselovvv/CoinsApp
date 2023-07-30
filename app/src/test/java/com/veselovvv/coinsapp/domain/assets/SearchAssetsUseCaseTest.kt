@@ -10,7 +10,7 @@ import java.net.UnknownHostException
 class SearchAssetsUseCaseTest {
     @Test
     fun test_success() = runBlocking {
-        val foundAssets = listOf(AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"))
+        val foundAssets = listOf(AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"))
         val assetMapper = BaseAssetDataToDomainMapper()
 
         val useCase = SearchAssetsUseCase.Base(

@@ -11,8 +11,8 @@ class FetchAssetsUseCaseTest {
     @Test
     fun test_success() = runBlocking {
         val assets = listOf(
-            AssetData(rank = "1", symbol = "BTC", name = "Bitcoin"),
-            AssetData(rank = "5", symbol = "USDC", name = "USD Coin")
+            AssetData(id = "bitcoin", rank = "1", symbol = "BTC", name = "Bitcoin"),
+            AssetData(id = "usd-coin", rank = "5", symbol = "USDC", name = "USD Coin")
         )
 
         val assetMapper = BaseAssetDataToDomainMapper()
