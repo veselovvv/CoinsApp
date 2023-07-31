@@ -10,7 +10,7 @@ import java.net.UnknownHostException
 class BaseAssetsDataToDomainMapper(
     private val assetMapper: AssetDataToDomainMapper
 ) : AssetsDataToDomainMapper {
-    override fun map(data: List<AssetData>) = AssetsDomain.Success(data, assetMapper)
+    override fun map(assets: List<AssetData>) = AssetsDomain.Success(assets, assetMapper)
     override fun map(e: Exception) = AssetsDomain.Fail(
         when (e) {
             is UnknownHostException -> ErrorType.NO_CONNECTION

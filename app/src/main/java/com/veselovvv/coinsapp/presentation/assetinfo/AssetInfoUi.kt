@@ -9,6 +9,7 @@ import com.veselovvv.coinsapp.presentation.core.show
 
 sealed class AssetInfoUi {
     open fun setup(progressLayout: ViewGroup) = progressLayout.hide()
+
     open fun map(
         supplyTextView: MaterialTextView,
         maxSupplyTextView: MaterialTextView,
@@ -18,6 +19,7 @@ sealed class AssetInfoUi {
         changePercent24HrTextView: MaterialTextView,
         vwap24HrTextView: MaterialTextView
     ) = Unit
+
     open fun map(
         failLayout: ViewGroup,
         messageTextView: MaterialTextView,
