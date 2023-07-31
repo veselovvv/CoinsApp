@@ -11,7 +11,7 @@ class BaseAssetsDomainToUiMapper(
     private val resourceProvider: ResourceProvider,
     private val assetMapper: AssetDomainToUiMapper
 ) : AssetsDomainToUiMapper {
-    override fun map(data: List<AssetDomain>) = AssetsUi.Success(data, assetMapper)
+    override fun map(assets: List<AssetDomain>) = AssetsUi.Success(assets, assetMapper)
     override fun map(errorType: ErrorType) = AssetsUi.Fail(
         resourceProvider.getString(
             when (errorType) {
