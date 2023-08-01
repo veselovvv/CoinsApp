@@ -12,7 +12,7 @@ sealed class AssetsDomain : Object<AssetsUi, AssetsDomainToUiMapper> {
         private val assetMapper: AssetDataToDomainMapper
     ) : AssetsDomain() {
         override fun map(mapper: AssetsDomainToUiMapper) = mapper.map(
-            assets.map { asset -> asset.map(assetMapper)}
+            assets.map { asset -> asset.map(assetMapper) }
         )
     }
 
