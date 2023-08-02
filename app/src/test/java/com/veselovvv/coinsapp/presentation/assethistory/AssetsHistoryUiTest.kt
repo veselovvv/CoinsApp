@@ -1,5 +1,6 @@
 package com.veselovvv.coinsapp.presentation.assethistory
 
+import com.veselovvv.coinsapp.domain.assethistory.AssetHistoryDomain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

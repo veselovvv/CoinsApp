@@ -12,11 +12,12 @@ sealed class AssetsHistoryUi : Object<Unit, AssetsHistoryCommunication> {
         override fun map(mapper: AssetsHistoryCommunication) {
             if (assetsHistory.isEmpty())
                 mapper.map(listOf(AssetHistoryUi.NoResults))
-            else mapper.map(
-                assetsHistory.map { assetHistory ->
-                    assetsHistory.map(assetHistoryMapper)
+            else {
+                val assetsHistoryUi = assetsHistory.map { assetHistory ->
+                    assetHistory.map(assetHistoryMapper)
                 }
-            )
+                mapper.map(assetsHistoryUi)
+            }
         }
     }
 

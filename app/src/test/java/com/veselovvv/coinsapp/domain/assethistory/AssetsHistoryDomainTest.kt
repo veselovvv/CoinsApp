@@ -1,7 +1,11 @@
 package com.veselovvv.coinsapp.domain.assethistory
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryData
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
+import com.veselovvv.coinsapp.presentation.assethistory.AssetsHistoryUi
+import com.veselovvv.coinsapp.presentation.assethistory.BaseAssetHistoryDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.assethistory.BaseAssetsHistoryDomainToUiMapper
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

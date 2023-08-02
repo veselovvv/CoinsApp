@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.assethistory
 
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryData
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryRepository
+import com.veselovvv.coinsapp.data.assethistory.AssetsHistoryData
+
 class TestAssetHistoryRepository(
     private val exception: Exception? = null
 ) : AssetHistoryRepository {

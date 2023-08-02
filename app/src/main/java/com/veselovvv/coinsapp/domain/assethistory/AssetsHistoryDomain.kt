@@ -2,6 +2,9 @@ package com.veselovvv.coinsapp.domain.assethistory
 
 import com.veselovvv.coinsapp.core.ErrorType
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryData
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryDataToDomainMapper
+import com.veselovvv.coinsapp.presentation.assethistory.AssetsHistoryUi
 
 sealed class AssetsHistoryDomain : Object<AssetsHistoryUi, AssetsHistoryDomainToUiMapper> {
     data class Success(
