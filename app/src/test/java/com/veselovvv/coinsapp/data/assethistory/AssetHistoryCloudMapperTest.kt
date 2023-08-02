@@ -1,5 +1,7 @@
 package com.veselovvv.coinsapp.data.assethistory
 
+import com.veselovvv.coinsapp.data.assethistory.cloud.AssetHistoryCloud
+import com.veselovvv.coinsapp.data.assethistory.cloud.AssetHistoryCloudMapper
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

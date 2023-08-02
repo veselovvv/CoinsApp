@@ -1,5 +1,8 @@
 package com.veselovvv.coinsapp.domain.assethistory
 
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryRepository
+import com.veselovvv.coinsapp.data.assethistory.AssetsHistoryDataToDomainMapper
+
 interface FetchAssetHistoryUseCase {
     suspend fun execute(assetId: String): AssetsHistoryDomain
 
@@ -8,6 +11,6 @@ interface FetchAssetHistoryUseCase {
         private val mapper: AssetsHistoryDataToDomainMapper
     ) : FetchAssetHistoryUseCase {
         override suspend fun execute(assetId: String) =
-            repository.fetchAssetInfo(assetId).map(mapper)
+            repository.fetchAssetHistory(assetId).map(mapper)
     }
 }

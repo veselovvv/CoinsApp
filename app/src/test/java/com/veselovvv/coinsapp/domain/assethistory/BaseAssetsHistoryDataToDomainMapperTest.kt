@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.assethistory
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.assethistory.AssetHistoryData
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.net.UnknownHostException
@@ -28,7 +29,7 @@ class BaseAssetsHistoryDataToDomainMapperTest {
         assertEquals(expected, actual)
 
         expected = AssetsHistoryDomain.Fail(ErrorType.GENERIC_ERROR)
-        var actual = mapper.map(Exception())
+        actual = mapper.map(Exception())
         assertEquals(expected, actual)
     }
 }
