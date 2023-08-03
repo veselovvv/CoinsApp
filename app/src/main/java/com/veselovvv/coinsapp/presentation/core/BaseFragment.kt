@@ -36,4 +36,10 @@ abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
     protected fun navigate(@IdRes destinationFragment: Int) =
         navController.navigate(destinationFragment)
+
+    protected fun navigateWithArguments(@IdRes destinationFragment: Int, bundle: Bundle) =
+        navController.navigate(destinationFragment, bundle)
+
+    protected fun getStringArgument(key: String) =
+        navController.backQueue.last().arguments?.getString(key) ?: ""
 }

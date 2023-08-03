@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.veselovvv.coinsapp.R
 import com.veselovvv.coinsapp.core.Retry
 import com.veselovvv.coinsapp.databinding.FragmentAssetInfoBinding
 import com.veselovvv.coinsapp.presentation.core.BaseFragment
@@ -33,7 +34,9 @@ class AssetInfoFragment : BaseFragment<FragmentAssetInfoBinding>() {
         binding.assetInfoName.text = viewModel.getAssetName()
 
         binding.assetInfoHistoryButton.setOnClickListener {
-            //TODO navigate
+            val bundle = Bundle()
+            bundle.putString(ASSET_ID, viewModel.getAssetId())
+            navigateWithArguments(R.id.assetHistoryFragment, bundle)
         }
 
         binding.assetInfoMarketsButton.setOnClickListener {
@@ -61,5 +64,9 @@ class AssetInfoFragment : BaseFragment<FragmentAssetInfoBinding>() {
             )
         }
         viewModel.fetchAssetInfo(viewModel.getAssetId())
+    }
+
+    companion object {
+        private const val ASSET_ID = "assetId"
     }
 }
