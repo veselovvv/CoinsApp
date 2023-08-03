@@ -16,4 +16,8 @@
         android:name="com.veselovvv.coinsapp.presentation.assetinfo.AssetInfoFragment"
         android:label="AssetInfoFragment"
         tools:layout="@layout/fragment_asset_info" />
+    <fragment
+        android:id="@+id/assetHistoryFragment"
+        android:name="com.veselovvv.coinsapp.presentation.assethistory.AssetHistoryFragment"
+        android:label="AssetHistoryFragment" />
 </navigation>

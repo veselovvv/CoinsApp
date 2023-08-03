@@ -23,15 +23,17 @@ class AssetHistoryFragment : BaseFragment<FragmentAssetHistoryBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val assetId = getStringArgument(ASSET_ID)
+
         val adapter = AssetHistoryAdapter(
             object : Retry {
-                override fun tryAgain() = viewModel.fetchAssetHistory(/*TODO get id*/)
+                override fun tryAgain() = viewModel.fetchAssetHistory(assetId)
             }
         )
 
         val swipeToRefreshLayout = binding.assetHistorySwipeToRefresh
         swipeToRefreshLayout.setOnRefreshListener {
-            viewModel.fetchAssetHistory(/*TODO get id*/)
+            viewModel.fetchAssetHistory(assetId)
             swipeToRefreshLayout.isRefreshing = false
         }
 
@@ -43,6 +45,10 @@ class AssetHistoryFragment : BaseFragment<FragmentAssetHistoryBinding>() {
         viewModel.observe(this) { assetHistoryUiList ->
             adapter.update(assetHistoryUiList)
         }
-        viewModel.fetchAssetHistory(/*TODO get id*/)
+        viewModel.fetchAssetHistory(assetId)
+    }
+
+    companion object {
+        private const val ASSET_ID = "assetId"
     }
 }
