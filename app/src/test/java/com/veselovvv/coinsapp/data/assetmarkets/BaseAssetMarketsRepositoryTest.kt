@@ -49,7 +49,7 @@ class BaseAssetMarketsRepositoryTest {
             )
         )
 
-        val actual = repository.searchAssetMarkets(query = "Bin")
+        val actual = repository.searchAssetMarkets(assetId = "bitcoin", query = "Bin")
         assertEquals(expected, actual)
     }
 
@@ -61,7 +61,7 @@ class BaseAssetMarketsRepositoryTest {
         )
 
         val expected = AssetsMarketsData.Success(listOf())
-        val actual = repository.searchAssetMarkets(query = "Binzcz")
+        val actual = repository.searchAssetMarkets(assetId = "bitcoin", query = "Binzcz")
         assertEquals(expected, actual)
     }
 
