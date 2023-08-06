@@ -15,9 +15,9 @@ class AssetsMarketsUiTest {
         val communication = TestAssetsMarketsCommunication()
         ui.map(communication)
 
-        var expected = listOf<AssetsMarketsUi>(
-            AssetsMarketsUi.Base(exchangeId = "Binance", baseId = "bitcoin", quoteId = "tether"),
-            AssetsMarketsUi.Base(exchangeId = "Bitfinex", baseId = "bitcoin", quoteId = "united-states-dollar")
+        var expected = listOf<AssetMarketsUi>(
+            AssetMarketsUi.Base(exchangeId = "Binance", baseId = "bitcoin", quoteId = "tether"),
+            AssetMarketsUi.Base(exchangeId = "Bitfinex", baseId = "bitcoin", quoteId = "united-states-dollar")
         )
 
         var actual = communication.getAssetsMarkets()
@@ -26,7 +26,7 @@ class AssetsMarketsUiTest {
         ui = AssetsMarketsUi.Success(listOf(), BaseAssetMarketsDomainToUiMapper())
         ui.map(communication)
 
-        expected = listOf<AssetsMarketsUi>(AssetsMarketsUi.NoResults)
+        expected = listOf<AssetMarketsUi>(AssetMarketsUi.NoResults)
         actual = communication.getAssetsMarkets()
         assertEquals(expected, actual)
     }
@@ -37,7 +37,7 @@ class AssetsMarketsUiTest {
         val communication = TestAssetsMarketsCommunication()
         ui.map(communication)
 
-        val expected = listOf<AssetsMarketsUi>(AssetsMarketsUi.Fail(GENERIC_ERROR_MESSAGE))
+        val expected = listOf<AssetMarketsUi>(AssetMarketsUi.Fail(GENERIC_ERROR_MESSAGE))
         val actual = communication.getAssetsMarkets()
         assertEquals(expected, actual)
     }

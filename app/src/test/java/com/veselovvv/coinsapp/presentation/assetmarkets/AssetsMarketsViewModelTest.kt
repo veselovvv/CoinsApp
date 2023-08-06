@@ -27,9 +27,9 @@ class AssetsMarketsViewModelTest {
 
         viewModel.fetchAssetMarkets(assetId = "bitcoin")
 
-        val expected = listOf<AssetsMarketsUi>(
-            AssetsMarketsUi.Base(exchangeId = "Binance", baseId = "bitcoin", quoteId = "tether"),
-            AssetsMarketsUi.Base(exchangeId = "Bitfinex", baseId = "bitcoin", quoteId = "united-states-dollar")
+        val expected = listOf<AssetMarketsUi>(
+            AssetMarketsUi.Base(exchangeId = "Binance", baseId = "bitcoin", quoteId = "tether"),
+            AssetMarketsUi.Base(exchangeId = "Bitfinex", baseId = "bitcoin", quoteId = "united-states-dollar")
         )
 
         val actual = communication.getAssetsMarkets()
@@ -54,7 +54,7 @@ class AssetsMarketsViewModelTest {
 
         viewModel.fetchAssetMarkets(assetId = "bitcoin")
 
-        val expected = listOf<AssetsMarketsUi>(AssetsMarketsUi.Fail(GENERIC_ERROR_MESSAGE))
+        val expected = listOf<AssetMarketsUi>(AssetMarketsUi.Fail(GENERIC_ERROR_MESSAGE))
         val actual = communication.getAssetsMarkets()
         assertEquals(expected, actual)
     }
@@ -83,8 +83,8 @@ class AssetsMarketsViewModelTest {
 
         viewModel.searchAssetMarkets(assetId = "bitcoin", query = "Bin")
 
-        var expected = listOf<AssetsMarketsUi>(
-            AssetsMarketsUi.Base(exchangeId = "Binance", baseId = "bitcoin", quoteId = "tether")
+        var expected = listOf<AssetMarketsUi>(
+            AssetMarketsUi.Base(exchangeId = "Binance", baseId = "bitcoin", quoteId = "tether")
         )
 
         var actual = communication.getAssetsMarkets()
@@ -102,7 +102,7 @@ class AssetsMarketsViewModelTest {
 
         viewModel.searchAssetMarkets(assetId = "bitcoin", query = "Binzxc")
 
-        expected = listOf<AssetsMarketsUi>(AssetsMarketsUi.NoResults)
+        expected = listOf<AssetMarketsUi>(AssetMarketsUi.NoResults)
         actual = communication.getAssetsMarkets()
         assertEquals(expected, actual)
     }
@@ -125,7 +125,7 @@ class AssetsMarketsViewModelTest {
 
         viewModel.searchAssetMarkets(assetId = "bitcoin", query = "Bin")
 
-        val expected = listOf<AssetsMarketsUi>(AssetsMarketsUi.Fail(GENERIC_ERROR_MESSAGE))
+        val expected = listOf<AssetMarketsUi>(AssetMarketsUi.Fail(GENERIC_ERROR_MESSAGE))
         val actual = communication.getAssetsMarkets()
         assertEquals(expected, actual)
     }
