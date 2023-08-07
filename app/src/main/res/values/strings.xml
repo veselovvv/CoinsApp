@@ -22,4 +22,8 @@
     <string name="history">History</string>
     <string name="price_in_usd">Price in USD:</string>
     <string name="time">Time:</string>
+    <string name="asset_markets">Asset Markets</string>
+    <string name="search_asset_markets">Search Asset Markets</string>
+    <string name="base_id">Base ID:</string>
+    <string name="quote_id">Quote ID:</string>
 </resources>
