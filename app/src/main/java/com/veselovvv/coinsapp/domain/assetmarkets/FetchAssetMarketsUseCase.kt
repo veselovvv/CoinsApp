@@ -1,5 +1,8 @@
 package com.veselovvv.coinsapp.domain.assetmarkets
 
+import com.veselovvv.coinsapp.data.assetmarkets.AssetMarketsRepository
+import com.veselovvv.coinsapp.data.assetmarkets.AssetsMarketsDataToDomainMapper
+
 interface FetchAssetMarketsUseCase {
     suspend fun execute(assetId: String): AssetsMarketsDomain
 

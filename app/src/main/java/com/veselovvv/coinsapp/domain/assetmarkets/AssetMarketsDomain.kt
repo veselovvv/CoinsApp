@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.assetmarkets
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.assetmarkets.AssetMarketsUi
 
 data class AssetMarketsDomain(
     private val exchangeId: String,
