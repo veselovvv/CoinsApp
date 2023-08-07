@@ -1,6 +1,9 @@
 package com.veselovvv.coinsapp.data.assetmarkets
 
 import com.veselovvv.coinsapp.data.TestException
+import com.veselovvv.coinsapp.data.assetmarkets.cloud.AssetMarketsCloud
+import com.veselovvv.coinsapp.data.assetmarkets.cloud.AssetMarketsCloudDataSource
+import com.veselovvv.coinsapp.data.assetmarkets.cloud.AssetMarketsCloudMapper
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test

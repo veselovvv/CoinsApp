@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.assetmarkets
 
+import com.veselovvv.coinsapp.data.assetmarkets.AssetMarketsData
+import com.veselovvv.coinsapp.data.assetmarkets.AssetMarketsRepository
+import com.veselovvv.coinsapp.data.assetmarkets.AssetsMarketsData
+
 class TestAssetMarketsRepository(
     private val exception: Exception? = null
 ) : AssetMarketsRepository {

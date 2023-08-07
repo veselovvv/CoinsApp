@@ -1,7 +1,11 @@
 package com.veselovvv.coinsapp.domain.assetmarkets
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.assetmarkets.AssetMarketsData
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
+import com.veselovvv.coinsapp.presentation.assetmarkets.AssetsMarketsUi
+import com.veselovvv.coinsapp.presentation.assetmarkets.BaseAssetMarketsDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.assetmarkets.BaseAssetsMarketsDomainToUiMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -32,14 +36,14 @@ class AssetsMarketsDomainTest {
         var domain = AssetsMarketsDomain.Fail(ErrorType.NO_CONNECTION)
         var expected = AssetsMarketsUi.Fail(NO_CONNECTION_MESSAGE)
         var actual = domain.map(
-            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper)
+            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper())
         )
         assertEquals(expected, actual)
 
         domain = AssetsMarketsDomain.Fail(ErrorType.SERVICE_UNAVAILABLE)
         expected = AssetsMarketsUi.Fail(SERVICE_UNAVAILABLE_MESSAGE)
         actual = domain.map(
-            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper)
+            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper())
         )
         assertEquals(expected, actual)
     }
