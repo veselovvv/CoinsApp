@@ -11,8 +11,7 @@ import com.veselovvv.coinsapp.databinding.NoResultsScreenBinding
 import com.veselovvv.coinsapp.databinding.ProgressFullscreenBinding
 
 class AssetMarketsAdapter(
-    private val retry: Retry,
-    private val assetMarketsListener: AssetMarketsListener
+    private val retry: Retry
 ) : RecyclerView.Adapter<AssetMarketsAdapter.AssetMarketsViewHolder>() {
     private val assetMarkets = ArrayList<AssetMarketsUi>()
 
@@ -34,8 +33,7 @@ class AssetMarketsAdapter(
             NoResultsScreenBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
         0 -> AssetMarketsViewHolder.Base(
-            AssetMarketsLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            assetMarketsListener
+            AssetMarketsLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
         1 -> AssetMarketsViewHolder.Fail(
             FailFullscreenBinding.inflate(LayoutInflater.from(parent.context), parent, false),
@@ -59,8 +57,7 @@ class AssetMarketsAdapter(
         class NoResults(binding: NoResultsScreenBinding) : AssetMarketsViewHolder(binding.root)
 
         class Base(
-            private val binding: AssetMarketsLayoutBinding,
-            private val assetMarketsListener: AssetMarketsListener
+            private val binding: AssetMarketsLayoutBinding
         ) : AssetMarketsViewHolder(binding.root) {
             override fun bind(assetMarkets: AssetMarketsUi) {
                 assetMarkets.map(object : AssetMarketsUi.BaseMapper {
@@ -74,10 +71,6 @@ class AssetMarketsAdapter(
 
                     override fun map(text: String) = Unit
                 })
-
-                itemView.setOnClickListener {
-                    assetMarkets.open(assetMarketsListener)
-                }
             }
         }
 
@@ -99,9 +92,5 @@ class AssetMarketsAdapter(
                 }
             }
         }
-    }
-
-    interface AssetMarketsListener {
-        fun showAssetMarkets(exchangeId: String, baseId: String, quoteId: String)
     }
 }

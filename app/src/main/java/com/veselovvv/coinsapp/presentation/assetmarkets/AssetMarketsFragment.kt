@@ -31,14 +31,9 @@ class AssetMarketsFragment : BaseFragment<FragmentAssetMarketsBinding>() {
 
         val assetId = getStringArgument(ASSET_ID)
 
-        val adapter = AssetMarketsAdapter(object : Retry {
-            override fun tryAgain() = viewModel.fetchAssetMarkets(assetId)
-        },
-            object : AssetMarketsAdapter.AssetMarketsListener {
-                override fun showAssetMarkets(exchangeId: String, baseId: String, quoteId: String) {
-                    viewModel.saveAssetMarketsInfo(exchangeId, baseId, quoteId)
-                    //TODO navigate
-                }
+        val adapter = AssetMarketsAdapter(
+            object : Retry {
+                override fun tryAgain() = viewModel.fetchAssetMarkets(assetId)
             }
         )
 

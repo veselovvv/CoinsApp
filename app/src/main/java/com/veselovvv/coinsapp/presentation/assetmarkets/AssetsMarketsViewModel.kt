@@ -4,7 +4,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.veselovvv.coinsapp.core.Save
 import com.veselovvv.coinsapp.di.core.CoreDomainModule
 import com.veselovvv.coinsapp.domain.assetmarkets.AssetsMarketsDomainToUiMapper
 import com.veselovvv.coinsapp.domain.assetmarkets.FetchAssetMarketsUseCase
@@ -22,8 +21,7 @@ class AssetsMarketsViewModel @Inject constructor(
     @CoreDomainModule.MainDispatcher private val dispatchersUi: CoroutineDispatcher,
     private val fetchAssetMarketsUseCase: FetchAssetMarketsUseCase,
     private val searchAssetMarketsUseCase: SearchAssetMarketsUseCase,
-    private val mapper: AssetsMarketsDomainToUiMapper,
-    private val assetMarketsCache: Save<Triple<String, String, String>>
+    private val mapper: AssetsMarketsDomainToUiMapper
 ) : ViewModel() {
     fun fetchAssetMarkets(assetId: String) {
         communication.map(listOf(AssetMarketsUi.Progress))
@@ -46,9 +44,6 @@ class AssetsMarketsViewModel @Inject constructor(
             }
         }
     }
-
-    fun saveAssetMarketsInfo(exchangeId: String, baseId: String, quoteId: String) =
-        assetMarketsCache.save(Triple(exchangeId, baseId, quoteId))
 
     fun observe(owner: LifecycleOwner, observer: Observer<List<AssetMarketsUi>>) =
         communication.observe(owner, observer)
