@@ -26,8 +26,7 @@ class AssetsMarketsViewModelTest {
             dispatchers,
             TestFetchAssetMarketsUseCase(success = true),
             TestSearchAssetMarketsUseCase(),
-            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper()),
-            TestAssetMarketsCache()
+            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper())
         )
 
         viewModel.fetchAssetMarkets(assetId = "bitcoin")
@@ -53,8 +52,7 @@ class AssetsMarketsViewModelTest {
             dispatchers,
             TestFetchAssetMarketsUseCase(success = false),
             TestSearchAssetMarketsUseCase(),
-            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper()),
-            TestAssetMarketsCache()
+            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper())
         )
 
         viewModel.fetchAssetMarkets(assetId = "bitcoin")
@@ -74,7 +72,6 @@ class AssetsMarketsViewModelTest {
             TestResourceProvider(),
             BaseAssetMarketsDomainToUiMapper()
         )
-        val assetMarketsCache = TestAssetMarketsCache()
 
         var viewModel = AssetsMarketsViewModel(
             communication,
@@ -82,8 +79,7 @@ class AssetsMarketsViewModelTest {
             dispatchers,
             fetchAssetMarketsUseCase,
             TestSearchAssetMarketsUseCase(success = true, isListEmpty = false),
-            assetsMarketsMapper,
-            assetMarketsCache
+            assetsMarketsMapper
         )
 
         viewModel.searchAssetMarkets(assetId = "bitcoin", query = "Bin")
@@ -101,8 +97,7 @@ class AssetsMarketsViewModelTest {
             dispatchers,
             fetchAssetMarketsUseCase,
             TestSearchAssetMarketsUseCase(success = true, isListEmpty = true),
-            assetsMarketsMapper,
-            assetMarketsCache
+            assetsMarketsMapper
         )
 
         viewModel.searchAssetMarkets(assetId = "bitcoin", query = "Binzxc")
@@ -124,8 +119,7 @@ class AssetsMarketsViewModelTest {
             dispatchers,
             TestFetchAssetMarketsUseCase(success = false),
             TestSearchAssetMarketsUseCase(success = false, isListEmpty = false),
-            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper()),
-            TestAssetMarketsCache()
+            BaseAssetsMarketsDomainToUiMapper(TestResourceProvider(), BaseAssetMarketsDomainToUiMapper())
         )
 
         viewModel.searchAssetMarkets(assetId = "bitcoin", query = "Bin")
