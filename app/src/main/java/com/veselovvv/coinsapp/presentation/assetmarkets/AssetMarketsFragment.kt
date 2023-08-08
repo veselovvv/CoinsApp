@@ -29,8 +29,10 @@ class AssetMarketsFragment : BaseFragment<FragmentAssetMarketsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val assetId = getStringArgument(ASSET_ID)
+
         val adapter = AssetMarketsAdapter(object : Retry {
-            override fun tryAgain() = viewModel.fetchAssetMarkets(/*todo get id*/)
+            override fun tryAgain() = viewModel.fetchAssetMarkets(assetId)
         },
             object : AssetMarketsAdapter.AssetMarketsListener {
                 override fun showAssetMarkets(exchangeId: String, baseId: String, quoteId: String) {
@@ -50,9 +52,9 @@ class AssetMarketsFragment : BaseFragment<FragmentAssetMarketsBinding>() {
                     R.id.action_search_asset_markets -> {
                         (item.actionView as SearchView).apply {
                             queryHint = getString(R.string.search_asset_markets)
-                            setOnQueryTextListener(object : SearchListener {
+                            setOnQueryTextListener(object : SearchListener() {
                                 override fun find(query: String?): Boolean {
-                                    viewModel.searchAssetMarkets(/*todo get id*/, query.toString())
+                                    viewModel.searchAssetMarkets(assetId, query.toString())
                                     return !query.isNullOrEmpty()
                                 }
                             })
@@ -65,7 +67,7 @@ class AssetMarketsFragment : BaseFragment<FragmentAssetMarketsBinding>() {
 
         val swipeToRefreshLayout = binding.assetMarketsSwipeToRefresh
         swipeToRefreshLayout.setOnRefreshListener {
-            viewModel.fetchAssetMarkets(/*todo id*/)
+            viewModel.fetchAssetMarkets(assetId)
             swipeToRefreshLayout.isRefreshing = false
         }
 
@@ -77,7 +79,7 @@ class AssetMarketsFragment : BaseFragment<FragmentAssetMarketsBinding>() {
         viewModel.observe(this) { assetMarketsUiList ->
             adapter.update(assetMarketsUiList)
         }
-        viewModel.fetchAssetMarkets(/*todo id*/)
+        viewModel.fetchAssetMarkets(assetId)
     }
 
     override fun onStart() {
@@ -88,5 +90,9 @@ class AssetMarketsFragment : BaseFragment<FragmentAssetMarketsBinding>() {
     override fun onPause() {
         super.onPause()
         toolbar.menu.clear()
+    }
+
+    companion object {
+        private const val ASSET_ID = "assetId"
     }
 }
