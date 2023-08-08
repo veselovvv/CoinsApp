@@ -40,7 +40,9 @@ class AssetInfoFragment : BaseFragment<FragmentAssetInfoBinding>() {
         }
 
         binding.assetInfoMarketsButton.setOnClickListener {
-            //TODO navigate
+            val bundle = Bundle()
+            bundle.putString(ASSET_ID, viewModel.getAssetId())
+            navigateWithArguments(R.id.assetMarketsFragment, bundle)
         }
 
         viewModel.observe(this) { ui ->

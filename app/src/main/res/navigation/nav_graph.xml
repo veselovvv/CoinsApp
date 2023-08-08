@@ -20,4 +20,8 @@
         android:id="@+id/assetHistoryFragment"
         android:name="com.veselovvv.coinsapp.presentation.assethistory.AssetHistoryFragment"
         android:label="AssetHistoryFragment" />
+    <fragment
+        android:id="@+id/assetMarketsFragment"
+        android:name="com.veselovvv.coinsapp.presentation.assetmarkets.AssetMarketsFragment"
+        android:label="AssetMarketsFragment" />
 </navigation>
