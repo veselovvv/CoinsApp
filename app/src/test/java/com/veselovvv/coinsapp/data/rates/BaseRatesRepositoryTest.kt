@@ -1,6 +1,9 @@
 package com.veselovvv.coinsapp.data.rates
 
 import com.veselovvv.coinsapp.data.TestException
+import com.veselovvv.coinsapp.data.rates.cloud.RateCloud
+import com.veselovvv.coinsapp.data.rates.cloud.RatesCloudDataSource
+import com.veselovvv.coinsapp.data.rates.cloud.RatesCloudMapper
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test

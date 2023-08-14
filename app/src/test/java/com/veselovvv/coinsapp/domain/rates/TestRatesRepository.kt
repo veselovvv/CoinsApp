@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.rates
 
+import com.veselovvv.coinsapp.data.rates.RateData
+import com.veselovvv.coinsapp.data.rates.RatesData
+import com.veselovvv.coinsapp.data.rates.RatesRepository
+
 class TestRatesRepository(private val exception: Exception? = null) : RatesRepository {
     private val rates = listOf(
         RateData(id = "barbadian-dollar", symbol = "BBD", rateUsd = "0.5000000000000000"),

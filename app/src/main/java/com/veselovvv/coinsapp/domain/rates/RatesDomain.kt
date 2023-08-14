@@ -2,6 +2,9 @@ package com.veselovvv.coinsapp.domain.rates
 
 import com.veselovvv.coinsapp.core.ErrorType
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.data.rates.RateData
+import com.veselovvv.coinsapp.data.rates.RateDataToDomainMapper
+import com.veselovvv.coinsapp.presentation.rates.RatesUi
 
 sealed class RatesDomain : Object<RatesUi, RatesDomainToUiMapper> {
     data class Success(
