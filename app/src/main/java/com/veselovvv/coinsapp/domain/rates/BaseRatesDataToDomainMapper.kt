@@ -1,6 +1,9 @@
 package com.veselovvv.coinsapp.domain.rates
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.rates.RateData
+import com.veselovvv.coinsapp.data.rates.RateDataToDomainMapper
+import com.veselovvv.coinsapp.data.rates.RatesDataToDomainMapper
 import retrofit2.HttpException
 import java.net.UnknownHostException
 

@@ -1,6 +1,11 @@
 package com.veselovvv.coinsapp.presentation.rates
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.rates.RateData
+import com.veselovvv.coinsapp.domain.rates.BaseRateDataToDomainMapper
+import com.veselovvv.coinsapp.domain.rates.FetchRatesUseCase
+import com.veselovvv.coinsapp.domain.rates.RatesDomain
+import com.veselovvv.coinsapp.domain.rates.SearchRatesUseCase
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking

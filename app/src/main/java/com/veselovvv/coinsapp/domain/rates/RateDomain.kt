@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.rates
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.rates.RateUi
 
 data class RateDomain(
     private val id: String,

@@ -1,5 +1,8 @@
 package com.veselovvv.coinsapp.domain.rates
 
+import com.veselovvv.coinsapp.data.rates.RatesDataToDomainMapper
+import com.veselovvv.coinsapp.data.rates.RatesRepository
+
 interface SearchRatesUseCase {
     suspend fun execute(query: String): RatesDomain
 
