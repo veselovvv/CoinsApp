@@ -26,4 +26,6 @@
     <string name="search_asset_markets">Search Asset Markets</string>
     <string name="base_id">Base ID:</string>
     <string name="quote_id">Quote ID:</string>
+    <string name="rate_in_usd">Rate in USD:</string>
+    <string name="search_rates">Search rates</string>
 </resources>
