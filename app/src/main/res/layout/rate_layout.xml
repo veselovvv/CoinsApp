@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rate_symbol_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="BBD" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rate_id_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textSize="18sp"
+        tools:text="barbadian-dollar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="4dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textSize="18sp"
+            android:text="@string/rate_in_usd" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rate_rate_usd_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textSize="18sp"
+            tools:text="0.5000000000000000" />
+    </LinearLayout>
+</LinearLayout>
