@@ -1,5 +1,8 @@
 package com.veselovvv.coinsapp.domain.rateinfo
 
+import com.veselovvv.coinsapp.data.rateinfo.RateInfoRepository
+import com.veselovvv.coinsapp.data.rateinfo.RatesInfoDataToDomainMapper
+
 interface FetchRateInfoUseCase {
     suspend fun execute(id: String): RatesInfoDomain
 

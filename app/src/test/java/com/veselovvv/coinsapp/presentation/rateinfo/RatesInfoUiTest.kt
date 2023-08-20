@@ -1,5 +1,6 @@
 package com.veselovvv.coinsapp.presentation.rateinfo
 
+import com.veselovvv.coinsapp.domain.rateinfo.RateInfoDomain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
