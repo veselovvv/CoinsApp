@@ -1,7 +1,11 @@
 package com.veselovvv.coinsapp.domain.rateinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.rateinfo.RateInfoData
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
+import com.veselovvv.coinsapp.presentation.rateinfo.BaseRateInfoDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.rateinfo.BaseRatesInfoDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.rateinfo.RatesInfoUi
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

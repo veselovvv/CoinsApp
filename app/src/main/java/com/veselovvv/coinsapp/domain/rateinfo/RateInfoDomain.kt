@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.rateinfo
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.rateinfo.RateInfoUi
 
 data class RateInfoDomain(
     private val currencySymbol: String,
