@@ -7,9 +7,14 @@ import com.veselovvv.coinsapp.data.rateinfo.ToRateInfoMapper
 
 data class RateInfoCloud(
     @SerializedName("currencySymbol")
-    private val currencySymbol: String,
+    private val currencySymbol: String?,
     @SerializedName("type")
     private val type: String
 ) : Object<RateInfoData, ToRateInfoMapper> {
-    override fun map(mapper: ToRateInfoMapper) = mapper.map(currencySymbol, type)
+    override fun map(mapper: ToRateInfoMapper) =
+        mapper.map(currencySymbol ?: NO_DATA, type)
+
+    companion object {
+        private const val NO_DATA = "-"
+    }
 }
