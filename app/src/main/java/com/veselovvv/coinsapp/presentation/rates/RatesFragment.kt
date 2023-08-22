@@ -35,7 +35,7 @@ class RatesFragment : BaseFragment<FragmentRatesBinding>() {
             object : RatesAdapter.RateListener {
                 override fun showRate(id: String, symbol: String, rateUsd: String) {
                     viewModel.saveRateInfo(id, symbol, rateUsd)
-                    //TODO navigate to fragment with rate details
+                    navigate(R.id.rateInfoFragment)
                 }
             }
         )

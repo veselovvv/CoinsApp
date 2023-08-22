@@ -33,4 +33,9 @@
         android:name="com.veselovvv.coinsapp.presentation.rates.RatesFragment"
         android:label="RatesFragment"
         tools:layout="@layout/fragment_rates" />
+    <fragment
+        android:id="@+id/rateInfoFragment"
+        android:name="com.veselovvv.coinsapp.presentation.rateinfo.RateInfoFragment"
+        android:label="RateInfoFragment"
+        tools:layout="@layout/fragment_rate_info" />
 </navigation>
