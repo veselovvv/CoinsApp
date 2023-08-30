@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.exchanges
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.exchanges.ExchangeUi
 
 data class ExchangeDomain(
     private val id: String,
