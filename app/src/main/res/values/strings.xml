@@ -30,4 +30,6 @@
     <string name="search_rates">Search rates</string>
     <string name="currency_symbol">Currency symbol:</string>
     <string name="type">Type:</string>
+    <string name="id">ID:</string>
+    <string name="search_exchanges">Search exchanges</string>
 </resources>
