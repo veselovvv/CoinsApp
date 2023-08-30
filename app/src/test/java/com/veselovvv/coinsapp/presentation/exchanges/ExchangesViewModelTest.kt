@@ -1,6 +1,11 @@
 package com.veselovvv.coinsapp.presentation.exchanges
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.exchanges.ExchangeData
+import com.veselovvv.coinsapp.domain.exchanges.BaseExchangeDataToDomainMapper
+import com.veselovvv.coinsapp.domain.exchanges.ExchangesDomain
+import com.veselovvv.coinsapp.domain.exchanges.FetchExchangesUseCase
+import com.veselovvv.coinsapp.domain.exchanges.SearchExchangesUseCase
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -71,7 +76,7 @@ class ExchangesViewModelTest {
         )
         val exchangeCache = TestExchangeCache()
 
-        val viewModel = ExchangesViewModel(
+        var viewModel = ExchangesViewModel(
             communication,
             dispatchers,
             dispatchers,

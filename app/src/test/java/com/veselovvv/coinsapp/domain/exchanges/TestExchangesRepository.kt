@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.exchanges
 
+import com.veselovvv.coinsapp.data.exchanges.ExchangeData
+import com.veselovvv.coinsapp.data.exchanges.ExchangesData
+import com.veselovvv.coinsapp.data.exchanges.ExchangesRepository
+
 class TestExchangesRepository(private val exception: Exception? = null) : ExchangesRepository {
     private val exchanges = listOf(
         ExchangeData(id = "okex", name = "Okex", rank = "1"),
