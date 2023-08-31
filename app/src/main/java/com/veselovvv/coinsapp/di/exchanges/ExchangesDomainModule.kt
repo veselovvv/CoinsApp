@@ -16,6 +16,7 @@ import com.veselovvv.coinsapp.presentation.exchanges.BaseExchangeDomainToUiMappe
 import com.veselovvv.coinsapp.presentation.exchanges.BaseExchangesDomainToUiMapper
 import com.veselovvv.coinsapp.presentation.exchanges.ExchangeCache
 import com.veselovvv.coinsapp.presentation.exchanges.ExchangesCommunication
+import com.veselovvv.coinsapp.presentation.exchanges.ExchangesParameters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -61,5 +62,5 @@ class ExchangesDomainModule {
     @Provides
     fun provideExchangeCache(
         @ApplicationContext context: Context
-    ): Save<Triple<String, String, String>> = ExchangeCache.Base(context)
+    ): Save<ExchangesParameters> = ExchangeCache.Base(context)
 }
