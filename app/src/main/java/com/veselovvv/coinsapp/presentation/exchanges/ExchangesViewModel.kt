@@ -23,7 +23,7 @@ class ExchangesViewModel @Inject constructor(
     private val fetchExchangesUseCase: FetchExchangesUseCase,
     private val searchExchangesUseCase: SearchExchangesUseCase,
     private val mapper: ExchangesDomainToUiMapper,
-    private val exchangeCache: Save<Triple<String, String, String>>
+    private val exchangeCache: Save<ExchangesParameters>
 ) : ViewModel() {
     fun fetchExchanges() {
         communication.map(listOf(ExchangeUi.Progress))
@@ -48,7 +48,7 @@ class ExchangesViewModel @Inject constructor(
     }
 
     fun saveExchangeInfo(id: String, name: String, rank: String) =
-        exchangeCache.save(Triple(id, name, rank))
+        exchangeCache.save(ExchangesParameters(id, name, rank))
 
     fun observe(owner: LifecycleOwner, observer: Observer<List<ExchangeUi>>) =
         communication.observe(owner, observer)

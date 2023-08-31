@@ -4,19 +4,19 @@ import android.content.Context
 import com.veselovvv.coinsapp.core.Read
 import com.veselovvv.coinsapp.core.Save
 
-interface ExchangeCache : Save<Triple<String, String, String>>, Read<Triple<String, String, String>> {
+interface ExchangeCache : Save<ExchangesParameters>, Read<ExchangesParameters> {
     class Base(context: Context) : ExchangeCache {
         private val sharedPreferences =
             context.getSharedPreferences(EXCHANGE_DATA_FILENAME, Context.MODE_PRIVATE)
 
-        override fun save(data: Triple<String, String, String>) =
+        override fun save(data: ExchangesParameters) =
             sharedPreferences.edit()
-                .putString(EXCHANGE_ID_KEY, data.first)
-                .putString(EXCHANGE_NAME_KEY, data.second)
-                .putString(EXCHANGE_RANK_KEY, data.third)
+                .putString(EXCHANGE_ID_KEY, data.getId())
+                .putString(EXCHANGE_NAME_KEY, data.getName())
+                .putString(EXCHANGE_RANK_KEY, data.getRank())
                 .apply()
 
-        override fun read(): Triple<String, String, String> = Triple(
+        override fun read(): ExchangesParameters = ExchangesParameters(
             sharedPreferences.getString(EXCHANGE_ID_KEY, "") ?: "",
             sharedPreferences.getString(EXCHANGE_NAME_KEY, "") ?: "",
             sharedPreferences.getString(EXCHANGE_RANK_KEY, "") ?: ""
