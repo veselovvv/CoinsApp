@@ -6,7 +6,7 @@ import com.veselovvv.coinsapp.data.exchanges.ExchangeData
 import com.veselovvv.coinsapp.data.exchanges.ToExchangeMapper
 
 data class ExchangeCloud(
-    @SerializedName("id")
+    @SerializedName("exchangeId")
     private val id: String,
     @SerializedName("name")
     private val name: String,
