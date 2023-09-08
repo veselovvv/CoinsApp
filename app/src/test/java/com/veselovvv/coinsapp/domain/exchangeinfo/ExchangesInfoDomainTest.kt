@@ -1,7 +1,11 @@
 package com.veselovvv.coinsapp.domain.exchangeinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangeInfoData
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
+import com.veselovvv.coinsapp.presentation.exchangeinfo.BaseExchangeInfoDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.exchangeinfo.BaseExchangesInfoDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.exchangeinfo.ExchangesInfoUi
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

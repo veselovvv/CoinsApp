@@ -1,6 +1,9 @@
 package com.veselovvv.coinsapp.data.exchangeinfo
 
 import com.veselovvv.coinsapp.data.TestException
+import com.veselovvv.coinsapp.data.exchangeinfo.cloud.ExchangeInfoCloud
+import com.veselovvv.coinsapp.data.exchangeinfo.cloud.ExchangeInfoCloudDataSource
+import com.veselovvv.coinsapp.data.exchangeinfo.cloud.ExchangeInfoCloudMapper
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test

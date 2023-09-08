@@ -1,6 +1,9 @@
 package com.veselovvv.coinsapp.domain.exchangeinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangeInfoData
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangeInfoDataToDomainMapper
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangesInfoDataToDomainMapper
 import retrofit2.HttpException
 import java.net.UnknownHostException
 

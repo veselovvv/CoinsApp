@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.exchangeinfo
 
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangeInfoData
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangeInfoRepository
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangesInfoData
+
 class TestExchangeInfoRepository(private val exception: Exception? = null) : ExchangeInfoRepository {
     override suspend fun fetchExchangeInfo(id: String) = if (exception == null)
         ExchangesInfoData.Success(
