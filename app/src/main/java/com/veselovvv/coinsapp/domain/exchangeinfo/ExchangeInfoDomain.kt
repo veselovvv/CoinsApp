@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.exchangeinfo
 
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.presentation.exchangeinfo.ExchangeInfoUi
 
 data class ExchangeInfoDomain(
     private val percentTotalVolume: String,

@@ -1,6 +1,10 @@
 package com.veselovvv.coinsapp.presentation.exchangeinfo
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.exchangeinfo.ExchangeInfoData
+import com.veselovvv.coinsapp.domain.exchangeinfo.BaseExchangeInfoDataToDomainMapper
+import com.veselovvv.coinsapp.domain.exchangeinfo.ExchangesInfoDomain
+import com.veselovvv.coinsapp.domain.exchangeinfo.FetchExchangeInfoUseCase
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import com.veselovvv.coinsapp.presentation.exchanges.TestExchangeCache
 import kotlinx.coroutines.ExperimentalCoroutinesApi
