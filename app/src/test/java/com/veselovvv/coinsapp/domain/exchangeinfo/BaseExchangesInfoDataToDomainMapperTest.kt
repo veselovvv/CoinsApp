@@ -6,7 +6,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.net.UnknownHostException
 
-interface BaseExchangesInfoDataToDomainMapperTest {
+class BaseExchangesInfoDataToDomainMapperTest {
     private val exchangeInfoMapper = BaseExchangeInfoDataToDomainMapper()
     private val mapper = BaseExchangesInfoDataToDomainMapper(exchangeInfoMapper)
 
