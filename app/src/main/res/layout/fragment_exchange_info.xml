@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/progress_fullscreen"
+        android:id="@+id/exchange_info_progress_layout"
+        android:visibility="gone" />
+
+    <include layout="@layout/fail_fullscreen"
+        android:id="@+id/exchange_info_fail_layout"
+        android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/exchange_info_swipe_to_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView style="@style/scroll_view">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/exchange_info_name"
+                    tools:text="Kraken"
+                    style="@style/big_text_view" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/rank" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/exchange_info_rank"
+                    style="@style/small_text_view"
+                    tools:text="4" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/percent_of_total_volume" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/exchange_info_percent_total_volume"
+                    style="@style/small_text_view"
+                    tools:text="2.946801735133553120000000000000000000" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/daily_volume_in_usd" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/exchange_info_volume_usd"
+                    style="@style/small_text_view"
+                    tools:text="84969370.4499608426167365" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/trading_pairs_offered_by_exchange" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/exchange_info_trading_pairs"
+                    style="@style/small_text_view"
+                    tools:text="52" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:textStyle="bold"
+                    style="@style/small_text_view"
+                    android:text="@string/website_to_exchange" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/exchange_info_exchange_url"
+                    style="@style/small_text_view"
+                    tools:text="https://kraken.com" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    style="@style/divider" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

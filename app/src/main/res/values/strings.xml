@@ -32,4 +32,8 @@
     <string name="type">Type:</string>
     <string name="id">ID:</string>
     <string name="search_exchanges">Search exchanges</string>
+    <string name="percent_of_total_volume">Percent of total volume:</string>
+    <string name="daily_volume_in_usd">Daily volume in USD:</string>
+    <string name="trading_pairs_offered_by_exchange">Trading pairs offered by exchange:</string>
+    <string name="website_to_exchange">Website to exchange:</string>
 </resources>
