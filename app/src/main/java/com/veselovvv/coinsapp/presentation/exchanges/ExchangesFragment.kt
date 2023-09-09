@@ -35,7 +35,7 @@ class ExchangesFragment : BaseFragment<FragmentExchangesBinding>() {
             object : ExchangesAdapter.ExchangeListener {
                 override fun showExchange(id: String, name: String, rank: String) {
                     viewModel.saveExchangeInfo(id, name, rank)
-                    //TODO navigate to exchange info fragment
+                    navigate(R.id.exchangeInfoFragment)
                 }
             }
         )
