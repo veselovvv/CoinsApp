@@ -2,6 +2,7 @@ package com.veselovvv.coinsapp.domain.markets
 
 import com.veselovvv.coinsapp.core.ErrorType
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.net.UnknownHostException
 
@@ -14,7 +15,7 @@ class SearchMarketsUseCaseTest {
 
         val marketMapper = BaseMarketDataToDomainMapper()
 
-        val useCase = SeachMarketsUseCase.Base(
+        val useCase = SearchMarketsUseCase.Base(
             TestMarketsRepository(),
             BaseMarketsDataToDomainMapper(marketMapper)
         )
@@ -28,7 +29,7 @@ class SearchMarketsUseCaseTest {
     fun test_fail() = runBlocking {
         var marketMapper = BaseMarketDataToDomainMapper()
 
-        var useCase = SeachMarketsUseCase.Base(
+        var useCase = SearchMarketsUseCase.Base(
             TestMarketsRepository(UnknownHostException()),
             BaseMarketsDataToDomainMapper(marketMapper)
         )
@@ -39,7 +40,7 @@ class SearchMarketsUseCaseTest {
 
         marketMapper = BaseMarketDataToDomainMapper()
 
-        useCase = SeachMarketsUseCase.Base(
+        useCase = SearchMarketsUseCase.Base(
             TestMarketsRepository(Exception()),
             BaseMarketsDataToDomainMapper(marketMapper)
         )
