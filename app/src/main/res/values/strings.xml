@@ -36,4 +36,5 @@
     <string name="daily_volume_in_usd">Daily volume in USD:</string>
     <string name="trading_pairs_offered_by_exchange">Trading pairs offered by exchange:</string>
     <string name="website_to_exchange">Website to exchange:</string>
+    <string name="search_markets">Search markets</string>
 </resources>
