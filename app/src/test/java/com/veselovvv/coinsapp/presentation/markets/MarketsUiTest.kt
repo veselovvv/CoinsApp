@@ -1,5 +1,6 @@
 package com.veselovvv.coinsapp.presentation.markets
 
+import com.veselovvv.coinsapp.domain.markets.MarketDomain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

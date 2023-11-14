@@ -1,5 +1,9 @@
 package com.veselovvv.coinsapp.domain.markets
 
+import com.veselovvv.coinsapp.data.markets.MarketData
+import com.veselovvv.coinsapp.data.markets.MarketsData
+import com.veselovvv.coinsapp.data.markets.MarketsRepository
+
 class TestMarketsRepository(private val exception: Exception? = null) : MarketsRepository {
     private val markets = listOf(
         MarketData(exchangeId = "bitstamp", baseSymbol = "BTC", quoteSymbol = "USD"),

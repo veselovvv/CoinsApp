@@ -2,6 +2,9 @@ package com.veselovvv.coinsapp.domain.markets
 
 import com.veselovvv.coinsapp.core.ErrorType
 import com.veselovvv.coinsapp.core.Object
+import com.veselovvv.coinsapp.data.markets.MarketData
+import com.veselovvv.coinsapp.data.markets.MarketDataToDomainMapper
+import com.veselovvv.coinsapp.presentation.markets.MarketsUi
 
 sealed class MarketsDomain : Object<MarketsUi, MarketsDomainToUiMapper> {
     data class Success(

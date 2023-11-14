@@ -1,6 +1,7 @@
 package com.veselovvv.coinsapp.domain.markets
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.markets.MarketData
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,6 +1,11 @@
 package com.veselovvv.coinsapp.presentation.markets
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.markets.MarketData
+import com.veselovvv.coinsapp.domain.markets.BaseMarketDataToDomainMapper
+import com.veselovvv.coinsapp.domain.markets.FetchMarketsUseCase
+import com.veselovvv.coinsapp.domain.markets.MarketsDomain
+import com.veselovvv.coinsapp.domain.markets.SearchMarketsUseCase
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
