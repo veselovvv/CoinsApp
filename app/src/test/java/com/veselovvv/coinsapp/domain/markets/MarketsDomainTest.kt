@@ -1,7 +1,11 @@
 package com.veselovvv.coinsapp.domain.markets
 
 import com.veselovvv.coinsapp.core.ErrorType
+import com.veselovvv.coinsapp.data.markets.MarketData
 import com.veselovvv.coinsapp.presentation.TestResourceProvider
+import com.veselovvv.coinsapp.presentation.markets.BaseMarketDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.markets.BaseMarketsDomainToUiMapper
+import com.veselovvv.coinsapp.presentation.markets.MarketsUi
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -29,17 +33,21 @@ class MarketsDomainTest {
     fun test_fail() {
         var domain = MarketsDomain.Fail(ErrorType.NO_CONNECTION)
         var expected = MarketsUi.Fail(NO_CONNECTION_MESSAGE)
-        val actual = domain.map(BaseMarketsDomainToUiMapper(
-            TestResourceProvider(),
-            BaseMarketDomainToUiMapper)
+        var actual = domain.map(
+            BaseMarketsDomainToUiMapper(
+                TestResourceProvider(),
+                BaseMarketDomainToUiMapper()
+            )
         )
         assertEquals(expected, actual)
 
         domain = MarketsDomain.Fail(ErrorType.SERVICE_UNAVAILABLE)
         expected = MarketsUi.Fail(SERVICE_UNAVAILABLE_MESSAGE)
-        actual = domain.map(BaseMarketsDomainToUiMapper(
-            TestResourceProvider(),
-            BaseMarketDomainToUiMapper)
+        actual = domain.map(
+            BaseMarketsDomainToUiMapper(
+                TestResourceProvider(),
+                BaseMarketDomainToUiMapper()
+            )
         )
         assertEquals(expected, actual)
     }
