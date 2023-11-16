@@ -47,4 +47,8 @@
         android:id="@+id/exchangeInfoFragment"
         android:name="com.veselovvv.coinsapp.presentation.exchangeinfo.ExchangeInfoFragment"
         android:label="ExchangeInfoFragment" />
+    <fragment
+        android:id="@+id/marketsFragment"
+        android:name="com.veselovvv.coinsapp.presentation.markets.MarketsFragment"
+        android:label="MarketsFragment" />
 </navigation>
