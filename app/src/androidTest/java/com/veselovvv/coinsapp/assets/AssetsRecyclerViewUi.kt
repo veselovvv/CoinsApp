@@ -24,10 +24,18 @@ class AssetsRecyclerViewUi : RecyclerViewUi(
         }
     }
 
+    fun checkNoResultsState(text: String) {
+        interaction.perform(scrollToPosition<RecyclerView.ViewHolder>(0))
+            .check(matches(withItemViewType(NO_RESULTS_VIEW_TYPE)))
+            .check(matches(isDisplayed()))
+            .check(matches(withRecyclerViewItemText(R.id.no_results_text_view, text)))
+    }
+
     /**
      * Described in getItemViewType() in AssetsAdapter
      */
     companion object {
+        private const val NO_RESULTS_VIEW_TYPE = -1
         private const val BASE_VIEW_TYPE = 0
     }
 }
