@@ -69,4 +69,89 @@ class AssetsTest {
             )
         )
     }
+
+    /**
+     * Check assets list state
+     * 1. Click search button
+     * Check search view state
+     * 2. CLick back search button
+     * Check assets list state
+     * 3. Click search button
+     * Check search view state
+     * 4. Type "Bit" in search view
+     * Check assets list state with found asset
+     * 5. CLick back search button
+     * Check assets list state
+     * 6. Click search button
+     * Check search view state
+     * 7. Type "Smth" in search view
+     * Check no results state with text "No results to show"
+     * 8. Type "Bit" in search view
+     * Check assets list state with found asset
+     * 9. CLick back search button
+     * Check assets list state
+     */
+    @Test
+    fun searchAssets() = with(AssetsPage()) {
+        checkAssetsListState(
+            assets = listOf(
+                Triple("BTC", "Bitcoin", "1"),
+                Triple("ETH", "Ethereum", "2"),
+                Triple("USDT", "Tether", "3")
+            )
+        )
+
+        clickSearchButton()
+        checkSearchViewState()
+
+        clickBackSearchButton()
+        checkAssetsListState(
+            assets = listOf(
+                Triple("BTC", "Bitcoin", "1"),
+                Triple("ETH", "Ethereum", "2"),
+                Triple("USDT", "Tether", "3")
+            )
+        )
+
+        clickSearchButton()
+        checkSearchViewState()
+
+        typeInSearchView(text = "Bit")
+        checkAssetsListState(
+            assets = listOf(
+                Triple("BTC", "Bitcoin", "1")
+            )
+        )
+
+        clickBackSearchButton()
+        checkAssetsListState(
+            assets = listOf(
+                Triple("BTC", "Bitcoin", "1"),
+                Triple("ETH", "Ethereum", "2"),
+                Triple("USDT", "Tether", "3")
+            )
+        )
+
+        clickSearchButton()
+        checkSearchViewState()
+
+        typeInSearchView(text = "Smth")
+        checkNoResultsState(text = "No results to show")
+
+        typeInSearchView(text = "Bit")
+        checkAssetsListState(
+            assets = listOf(
+                Triple("BTC", "Bitcoin", "1")
+            )
+        )
+
+        clickBackSearchButton()
+        checkAssetsListState(
+            assets = listOf(
+                Triple("BTC", "Bitcoin", "1"),
+                Triple("ETH", "Ethereum", "2"),
+                Triple("USDT", "Tether", "3")
+            )
+        )
+    }
 }
