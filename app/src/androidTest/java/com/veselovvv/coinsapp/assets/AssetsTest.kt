@@ -1,5 +1,6 @@
 package com.veselovvv.coinsapp.assets
 
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.veselovvv.coinsapp.MainActivity
@@ -153,5 +154,126 @@ class AssetsTest {
                 Triple("USDT", "Tether", "3")
             )
         )
+    }
+
+    /**
+     * Check Assets Page is visible
+     * Check assets list state
+     * 1. Click on first item in list (index = 0)
+     * Check Asset Info Page is visible
+     * Check asset info state
+     * 2. Recreate activity
+     * Check error state with text "No connection. Please try again!"
+     * 3. Click "Try again" button
+     * Check Asset Info Page is visible
+     * Check asset info state
+     * 4. Scroll up
+     * 5. Swipe to refresh
+     * Check error state with text "No connection. Please try again!"
+     * 6. Click "Try again" button
+     * Check Asset Info Page is visible
+     * Check asset info state
+     * 7. Press back button
+     * Check Asset Info Page is not visible
+     * Check Assets Page is visible
+     * Check error state with text "No connection. Please try again!"
+     * 8. Click "Try again" button
+     * Check Asset Info Page is not visible
+     * Check Assets Page is visible
+     * Check assets list state
+     */
+    @Test
+    fun loadAssetInfoAndGoBack() {
+        val assetsPage = AssetsPage()
+
+        with(assetsPage) {
+            checkIsVisible()
+            checkAssetsListState(
+                assets = listOf(
+                    Triple("BTC", "Bitcoin", "1"),
+                    Triple("ETH", "Ethereum", "2"),
+                    Triple("USDT", "Tether", "3")
+                )
+            )
+            clickOnItemInList(index = 0)
+        }
+
+        val assetInfoPage = AssetInfoPage()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+
+            activityScenarioRule.scenario.recreate()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+
+            scrollUp()
+            swipeToRefresh()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+        }
+
+        pressBack()
+        assetInfoPage.checkIsNotVisible()
+
+        with(assetsPage) {
+            checkIsVisible()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+        }
+
+        assetInfoPage.checkIsNotVisible()
+
+        with(assetsPage) {
+            checkIsVisible()
+            checkAssetsListState(
+                assets = listOf(
+                    Triple("BTC", "Bitcoin", "1"),
+                    Triple("ETH", "Ethereum", "2"),
+                    Triple("USDT", "Tether", "3")
+                )
+            )
+        }
     }
 }
