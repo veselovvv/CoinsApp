@@ -1,10 +1,11 @@
 package com.veselovvv.coinsapp.assets
 
 import com.veselovvv.coinsapp.R
+import com.veselovvv.coinsapp.core.AbstractPage
 import com.veselovvv.coinsapp.core.SearchViewUi
 import com.veselovvv.coinsapp.core.SwipeToRefreshUi
 
-class AssetsPage {
+class AssetsPage : AbstractPage(R.id.assets_root_layout) {
     private val recyclerViewUi = AssetsRecyclerViewUi()
     private val searchViewUi = SearchViewUi()
     private val swipeToRefreshUi = SwipeToRefreshUi(
@@ -23,4 +24,5 @@ class AssetsPage {
     fun clickBackSearchButton() = searchViewUi.clickBackSearchButton()
     fun typeInSearchView(text: String) = searchViewUi.typeInSearchView(text = text)
     fun checkNoResultsState(text: String) = recyclerViewUi.checkNoResultsState(text = text)
+    fun clickOnItemInList(index: Int) = recyclerViewUi.clickOnItemInList(index)
 }
