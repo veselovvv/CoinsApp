@@ -276,4 +276,126 @@ class AssetsTest {
             )
         }
     }
+
+    /**
+     * Check Assets Page is visible
+     * Check assets list state
+     * 1. Click on first item in list (index = 0)
+     * Check Asset Info Page is visible
+     * Check asset info state
+     * 2. Click "History" button
+     * Check Asset Info Page is not visible
+     * Check Asset History Page is visible
+     * Check asset history list state
+     * 3. Swipe to refresh
+     * Check error state with text "No connection. Please try again!"
+     * 4. Click "Try again" button
+     * Check Asset Info Page is not visible
+     * Check Asset History Page is visible
+     * Check asset history list state
+     * 5. Press back button
+     * Check Asset History Page is not visible
+     * Check Asset Info Page is visible
+     * Check error state with text "No connection. Please try again!"
+     * 6. Click "Try again" button
+     * Check Asset History Page is not visible
+     * Check Asset Info Page is visible
+     * Check asset info state
+     */
+    @Test
+    fun loadAssetHistoryAndGoBack() {
+        val assetsPage = AssetsPage()
+
+        with(assetsPage) {
+            checkIsVisible()
+            checkAssetsListState(
+                assets = listOf(
+                    Triple("BTC", "Bitcoin", "1"),
+                    Triple("ETH", "Ethereum", "2"),
+                    Triple("USDT", "Tether", "3")
+                )
+            )
+            clickOnItemInList(index = 0)
+        }
+
+        val assetInfoPage = AssetInfoPage()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+
+            clickHistoryButton()
+            checkIsNotVisible()
+        }
+
+        val assetHistoryPage = AssetHistoryPage()
+
+        with(assetHistoryPage) {
+            checkIsVisible()
+            checkAssetHistoryListState(
+                assetHistory = listOf(
+                    Pair("6379.3997635993342453", "1530403200000"),
+                    Pair("5249.2897635663782442", "1340203100000"),
+                    Pair("6379.6558636794542412", "1420703400000")
+                )
+            )
+
+            swipeToRefresh()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+        }
+
+        assetInfoPage.checkIsNotVisible()
+
+        with(assetHistoryPage) {
+            checkIsVisible()
+            checkAssetHistoryListState(
+                assetHistory = listOf(
+                    Pair("6379.3997635993342453", "1530403200000"),
+                    Pair("5249.2897635663782442", "1340203100000"),
+                    Pair("6379.6558636794542412", "1420703400000")
+                )
+            )
+        }
+
+        pressBack()
+        assetHistoryPage.checkIsNotVisible()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+        }
+
+        assetHistoryPage.checkIsNotVisible()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+        }
+    }
 }
