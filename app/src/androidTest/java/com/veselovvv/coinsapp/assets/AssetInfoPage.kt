@@ -20,6 +20,7 @@ class AssetInfoPage : AbstractPage(R.id.asset_info_root_layout) {
     fun checkErrorState(message: String) = errorUi.checkErrorState(message)
     fun clickTryAgainButton() = errorUi.clickTryAgainButton()
     fun scrollUp() = textViewUi.scrollTo(R.id.asset_info_symbol)
+    fun clickHistoryButton() = buttonUi.click(R.id.asset_info_history_button)
 
     fun checkAssetInfoState(
         symbol: String,
