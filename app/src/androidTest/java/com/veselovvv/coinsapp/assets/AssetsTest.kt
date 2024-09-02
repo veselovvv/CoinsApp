@@ -398,4 +398,188 @@ class AssetsTest {
             )
         }
     }
+
+    /**
+     * Check Assets Page is visible
+     * Check assets list state
+     * 1. Click on first item in list (index = 0)
+     * Check Asset Info Page is visible
+     * Check asset info state
+     * 2. Click "Markets" button
+     * Check Asset Info Page is not visible
+     * Check Asset Markets Page is visible
+     * Check asset markets list state
+     * 3. Swipe to refresh
+     * Check error state with text "No connection. Please try again!"
+     * 4. Click "Try again" button
+     * Check Asset Info Page is not visible
+     * Check Asset Markets Page is visible
+     * Check asset markets list state
+     * 5. Click search button
+     * Check search view state
+     * 6. CLick back search button
+     * Check asset markets list state
+     * 7. Click search button
+     * Check search view state
+     * 8. Type "Bin" in search view
+     * Check asset markets list state with found asset market
+     * 9. CLick back search button
+     * Check asset markets list state
+     * 10. Click search button
+     * Check search view state
+     * 11. Type "Smth" in search view
+     * Check no results state with text "No results to show"
+     * 12. CLick back search button
+     * Check asset markets list state
+     * 13. Press back button
+     * Check Asset Markets Page is not visible
+     * Check Asset Info Page is visible
+     * Check error state with text "No connection. Please try again!"
+     * 14. Click "Try again" button
+     * Check Asset Markets Page is not visible
+     * Check Asset Info Page is visible
+     * Check asset info state
+     */
+    @Test
+    fun loadAssetMarketsSearchAndGoBack() {
+        val assetsPage = AssetsPage()
+
+        with(assetsPage) {
+            checkIsVisible()
+            checkAssetsListState(
+                assets = listOf(
+                    Triple("BTC", "Bitcoin", "1"),
+                    Triple("ETH", "Ethereum", "2"),
+                    Triple("USDT", "Tether", "3")
+                )
+            )
+            clickOnItemInList(index = 0)
+        }
+
+        val assetInfoPage = AssetInfoPage()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+
+            clickMarketsButton()
+            checkIsNotVisible()
+        }
+
+        val assetMarketsPage = AssetMarketsPage()
+
+        with(assetMarketsPage) {
+            checkIsVisible()
+            checkAssetMarketsListState(
+                assetMarkets = listOf(
+                    Triple("Binance", "bitcoin", "tether"),
+                    Triple("WhiteBIT", "bitcoin", "tether"),
+                    Triple("LBank", "bitcoin", "tether")
+                )
+            )
+
+            swipeToRefresh()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+        }
+
+        assetInfoPage.checkIsNotVisible()
+
+        with(assetMarketsPage) {
+            checkIsVisible()
+            checkAssetMarketsListState(
+                assetMarkets = listOf(
+                    Triple("Binance", "bitcoin", "tether"),
+                    Triple("WhiteBIT", "bitcoin", "tether"),
+                    Triple("LBank", "bitcoin", "tether")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            clickBackSearchButton()
+            checkAssetMarketsListState(
+                assetMarkets = listOf(
+                    Triple("Binance", "bitcoin", "tether"),
+                    Triple("WhiteBIT", "bitcoin", "tether"),
+                    Triple("LBank", "bitcoin", "tether")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            typeInSearchView(text = "Bin")
+            checkAssetMarketsListState(
+                assetMarkets = listOf(
+                    Triple("Binance", "bitcoin", "tether")
+                )
+            )
+
+            clickBackSearchButton()
+            checkAssetMarketsListState(
+                assetMarkets = listOf(
+                    Triple("Binance", "bitcoin", "tether"),
+                    Triple("WhiteBIT", "bitcoin", "tether"),
+                    Triple("LBank", "bitcoin", "tether")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            typeInSearchView(text = "Smth")
+            checkNoResultsState(text = "No results to show")
+
+            clickBackSearchButton()
+            checkAssetMarketsListState(
+                assetMarkets = listOf(
+                    Triple("Binance", "bitcoin", "tether"),
+                    Triple("WhiteBIT", "bitcoin", "tether"),
+                    Triple("LBank", "bitcoin", "tether")
+                )
+            )
+        }
+
+        pressBack()
+        assetMarketsPage.checkIsNotVisible()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkErrorState(message = "No connection. Please try again!")
+
+            clickTryAgainButton()
+        }
+
+        assetMarketsPage.checkIsNotVisible()
+
+        with(assetInfoPage) {
+            checkIsVisible()
+            checkAssetInfoState(
+                symbol = "BTC",
+                name = "Bitcoin",
+                rank = "1",
+                supply = "17193925.0000000000000000",
+                maxSupply = "21000000.0000000000000000",
+                marketCapUsd = "119179791817.6740161068269075",
+                volumeUsd24Hr = "2928356777.6066665425687196",
+                priceUsd = "6931.5058555666618359",
+                changePercent24Hr = "-0.8101417214350335",
+                vwap24Hr = "7175.0663247679233209"
+            )
+        }
+    }
 }
