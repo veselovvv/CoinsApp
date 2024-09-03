@@ -90,4 +90,110 @@ class RatesTest {
             )
         }
     }
+
+    // TODO RUN
+    /**
+     * Check Assets Page is visible
+     * Check assets list state
+     * 1. Click on "Rates" tab in BottomNavigation
+     * Check Rates Page is visible
+     * Check rates list state
+     * 2. Click search button
+     * Check search view state
+     * 3. CLick back search button
+     * Check rates list state
+     * 4. Click search button
+     * Check search view state
+     * 5. Type "HK" in search view
+     * Check rates list state with found rate
+     * 6. CLick back search button
+     * Check rates list state
+     * 7. Click search button
+     * Check search view state
+     * 8. Type "Smth" in search view
+     * Check no results state with text "No results to show"
+     * 9. Type "HK" in search view
+     * Check rates list state with found rate
+     * 10. CLick back search button
+     * Check rates list state
+     */
+    @Test
+    fun searchRates() {
+        with(AssetsPage()) {
+            checkIsVisible()
+            checkAssetsListState(
+                assets = listOf(
+                    Triple("BTC", "Bitcoin", "1"),
+                    Triple("ETH", "Ethereum", "2"),
+                    Triple("USDT", "Tether", "3")
+                )
+            )
+
+            clickOnRatesTab()
+        }
+
+        with(RatesPage()) {
+            checkIsVisible()
+            checkRatesListState(
+                rates = listOf(
+                    Triple("BMD", "bermudan-dollar", "1.0000000000000000"),
+                    Triple("NOK", "norwegian-krone", "0.0944781311469834"),
+                    Triple("HKD", "hong-kong-dollar", "0.1282511835339845")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            clickBackSearchButton()
+            checkRatesListState(
+                rates = listOf(
+                    Triple("BMD", "bermudan-dollar", "1.0000000000000000"),
+                    Triple("NOK", "norwegian-krone", "0.0944781311469834"),
+                    Triple("HKD", "hong-kong-dollar", "0.1282511835339845")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            typeInSearchView(text = "HK")
+            checkRatesListState(
+                rates = listOf(
+                    Triple("HKD", "hong-kong-dollar", "0.1282511835339845")
+                )
+            )
+
+            clickBackSearchButton()
+            checkRatesListState(
+                rates = listOf(
+                    Triple("BMD", "bermudan-dollar", "1.0000000000000000"),
+                    Triple("NOK", "norwegian-krone", "0.0944781311469834"),
+                    Triple("HKD", "hong-kong-dollar", "0.1282511835339845")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            typeInSearchView(text = "Smth")
+            checkNoResultsState(text = "No results to show")
+
+            typeInSearchView(text = "HK")
+            checkRatesListState(
+                rates = listOf(
+                    Triple("HKD", "hong-kong-dollar", "0.1282511835339845")
+                )
+            )
+
+            clickBackSearchButton()
+            checkRatesListState(
+                rates = listOf(
+                    Triple("BMD", "bermudan-dollar", "1.0000000000000000"),
+                    Triple("NOK", "norwegian-krone", "0.0944781311469834"),
+                    Triple("HKD", "hong-kong-dollar", "0.1282511835339845")
+                )
+            )
+        }
+    }
 }
