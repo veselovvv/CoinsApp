@@ -35,16 +35,18 @@ class AssetInfoPage : AbstractPage(R.id.asset_info_root_layout) {
         changePercent24Hr: String,
         vwap24Hr: String
     ) {
-        textViewUi.checkText(R.id.asset_info_symbol, symbol)
-        textViewUi.checkText(R.id.asset_info_name, name)
-        textViewUi.checkText(R.id.asset_info_rank, rank)
-        textViewUi.checkText(R.id.asset_info_supply, supply)
-        textViewUi.checkText(R.id.asset_info_max_supply, maxSupply)
-        textViewUi.checkText(R.id.asset_info_market_cap_usd, marketCapUsd)
-        textViewUi.checkText(R.id.asset_info_volume_usd_24_hr, volumeUsd24Hr)
-        textViewUi.checkText(R.id.asset_info_price_usd, priceUsd)
-        textViewUi.checkText(R.id.asset_info_change_percent_24_hr, changePercent24Hr)
-        textViewUi.checkText(R.id.asset_info_vwap_24_hr, vwap24Hr)
+        with(textViewUi) {
+            checkText(R.id.asset_info_symbol, symbol)
+            checkText(R.id.asset_info_name, name)
+            checkText(R.id.asset_info_rank, rank)
+            checkText(R.id.asset_info_supply, supply)
+            checkText(R.id.asset_info_max_supply, maxSupply)
+            checkText(R.id.asset_info_market_cap_usd, marketCapUsd)
+            checkText(R.id.asset_info_volume_usd_24_hr, volumeUsd24Hr)
+            checkText(R.id.asset_info_price_usd, priceUsd)
+            checkText(R.id.asset_info_change_percent_24_hr, changePercent24Hr)
+            checkText(R.id.asset_info_vwap_24_hr, vwap24Hr)
+        }
 
         buttonUi.checkIsVisible(R.id.asset_info_history_button)
         buttonUi.checkIsVisible(R.id.asset_info_markets_button)

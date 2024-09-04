@@ -19,6 +19,7 @@ class RatesPage : AbstractPage(R.id.rates_root_layout) {
     fun swipeToRefresh() = swipeToRefreshUi.swipeToRefresh()
     fun checkErrorState(message: String) = recyclerViewUi.checkErrorState(message = message)
     fun clickTryAgainButton() = recyclerViewUi.clickTryAgainButton()
+    fun clickOnItemInList(index: Int) = recyclerViewUi.clickOnItemInList(index)
     fun clickSearchButton() = searchViewUi.clickSearchButton(searchMenuItemId = R.id.action_search_rates)
     fun checkSearchViewState() = searchViewUi.checkSearchViewState()
     fun clickBackSearchButton() = searchViewUi.clickBackSearchButton()

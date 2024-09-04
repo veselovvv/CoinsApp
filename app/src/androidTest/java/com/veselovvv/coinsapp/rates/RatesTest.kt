@@ -226,7 +226,7 @@ class RatesTest {
      * Check rates list state
      */
     @Test
-    fun loadAssetInfoAndGoBack() {
+    fun loadRateInfoAndGoBack() {
         with(AssetsPage()) {
             checkIsVisible()
             checkAssetsListState(
