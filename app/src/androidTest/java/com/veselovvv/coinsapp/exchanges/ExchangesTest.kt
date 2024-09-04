@@ -90,4 +90,109 @@ class ExchangesTest {
             )
         }
     }
+
+    /**
+     * Check Assets Page is visible
+     * Check assets list state
+     * 1. Click on "Exchanges" tab in BottomNavigation
+     * Check Exchanges Page is visible
+     * Check exchanges list state
+     * 2. Click search button
+     * Check search view state
+     * 3. CLick back search button
+     * Check rates list state
+     * 4. Click search button
+     * Check search view state
+     * 5. Type "Co" in search view
+     * Check exchanges list state with found rate
+     * 6. CLick back search button
+     * Check exchanges list state
+     * 7. Click search button
+     * Check search view state
+     * 8. Type "Smth" in search view
+     * Check no results state with text "No results to show"
+     * 9. Type "Co" in search view
+     * Check exchanges list state with found rate
+     * 10. CLick back search button
+     * Check exchanges list state
+     */
+    @Test
+    fun searchExchanges() {
+        with(AssetsPage()) {
+            checkIsVisible()
+            checkAssetsListState(
+                assets = listOf(
+                    Triple("BTC", "Bitcoin", "1"),
+                    Triple("ETH", "Ethereum", "2"),
+                    Triple("USDT", "Tether", "3")
+                )
+            )
+
+            clickOnExchangesTab()
+        }
+
+        with(ExchangesPage()) {
+            checkIsVisible()
+            checkExchangesListState(
+                exchanges = listOf(
+                    Triple("Binance", "binance", "1"),
+                    Triple("Crypto.com Exchange", "crypto", "2"),
+                    Triple("Coinbase Pro", "gdax", "3")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            clickBackSearchButton()
+            checkExchangesListState(
+                exchanges = listOf(
+                    Triple("Binance", "binance", "1"),
+                    Triple("Crypto.com Exchange", "crypto", "2"),
+                    Triple("Coinbase Pro", "gdax", "3")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            typeInSearchView(text = "Co")
+            checkExchangesListState(
+                exchanges = listOf(
+                    Triple("Coinbase Pro", "gdax", "3")
+                )
+            )
+
+            clickBackSearchButton()
+            checkExchangesListState(
+                exchanges = listOf(
+                    Triple("Binance", "binance", "1"),
+                    Triple("Crypto.com Exchange", "crypto", "2"),
+                    Triple("Coinbase Pro", "gdax", "3")
+                )
+            )
+
+            clickSearchButton()
+            checkSearchViewState()
+
+            typeInSearchView(text = "Smth")
+            checkNoResultsState(text = "No results to show")
+
+            typeInSearchView(text = "Co")
+            checkExchangesListState(
+                exchanges = listOf(
+                    Triple("Coinbase Pro", "gdax", "3")
+                )
+            )
+
+            clickBackSearchButton()
+            checkExchangesListState(
+                exchanges = listOf(
+                    Triple("Binance", "binance", "1"),
+                    Triple("Crypto.com Exchange", "crypto", "2"),
+                    Triple("Coinbase Pro", "gdax", "3")
+                )
+            )
+        }
+    }
 }
