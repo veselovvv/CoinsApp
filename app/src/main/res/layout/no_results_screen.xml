@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/no_results_text_view"
         android:text="@string/no_results_to_show"
         android:textStyle="bold"
         style="@style/small_text_view" />
