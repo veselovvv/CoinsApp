@@ -29,4 +29,5 @@ class AssetsPage : AbstractPage(R.id.assets_root_layout) {
     fun clickOnItemInList(index: Int) = recyclerViewUi.clickOnItemInList(index)
     fun clickOnRatesTab() = bottomNavigationUi.clickOnRatesTab()
     fun clickOnExchangesTab() = bottomNavigationUi.clickOnExchangesTab()
+    fun clickOnMarketsTab() = bottomNavigationUi.clickOnMarketsTab()
 }

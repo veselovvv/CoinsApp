@@ -13,4 +13,5 @@ class BottomNavigationUi {
 
     fun clickOnRatesTab() = clickOnTab(R.id.ratesFragment)
     fun clickOnExchangesTab() = clickOnTab(R.id.exchangesFragment)
+    fun clickOnMarketsTab() = clickOnTab(R.id.marketsFragment)
 }
